@@ -1,0 +1,146 @@
+{
+	"name": "Checklists",
+	"version": "1.0.0-beta",
+	"license-name": "GPL-3.0-only",
+	"author": [
+		"[http://www.hallowelt.com Hallo Welt! GmbH]"
+	],
+	"url": "http://www.hallowelt.com",
+	"descriptionmsg": "checklists-desc",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"MessagesDirs": {
+		"Checklists": "i18n"
+	},
+	"DefaultUserOptions": {
+		"checklists-hide-revision-dlg": 0
+	},
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.checklists.ve.checkList"
+			]
+		},
+		"ContentDroplets": {
+			"Droplets": {
+				"checkboxlist": {
+					"class": "\\MediaWiki\\Extension\\Checklists\\ContentDroplets\\ChecklistDroplet"
+				}
+			}
+		}
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Checklists\\": "src/",
+		"MediaWiki\\Extension\\Checklists\\Tests\\": "tests/phpunit"
+	},
+	"ResourceModules": {
+		"ext.checklists.ve.checkList": {
+			"scripts": [
+				"bootstrap.js",
+				"ve/dm/ChecklistNode.js",
+				"ve/dm/ChecklistItemNode.js",
+				"ve/ce/ChecklistNode.js",
+				"ve/ce/ChecklistItemNode.js",
+				"ve/tools/ChecklistItemTool.js"
+			],
+			"messages": [
+				"checklists-ve-tool-title"
+			],
+			"dependencies": [
+				"ext.visualEditor.core",
+				"ext.visualEditor.mwcore",
+				"ext.checklists.styles"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.checklists.styles": {
+			"styles": [
+				"stylesheets/ChecklistItemNode.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.checklists.view": {
+			"packageFiles": [
+				"changeStatus.js",
+				"bootstrap.js",
+				"ui/CheckboxDialog.js"
+			],
+			"messages": [
+				"checklists-confirm-change-status",
+				"checklists-checkbox-dlg-title",
+				"checklists-checkbox-dlg-action-done",
+				"checklists-checkbox-dlg-action-cancel",
+				"checklists-checkbox-dlg-hide-revision-label"
+			],
+			"dependencies": [
+				"oojs"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "Checklists/resources"
+	},
+	"Hooks": {
+		"ParserPreSaveTransformComplete": "processChecklistItems",
+		"PageSaveComplete": "processChecklistItems",
+		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
+		"ParserBeforeInternalParse": "modifyOutput",
+		"PageDeleteComplete": "processChecklistItems",
+		"ArticleUndelete": "processChecklistItems",
+		"PageDelete": "processChecklistItems",
+		"GetPreferences": "userpreference",
+		"ParserAfterTidy": "modifyOutput"
+	},
+	"HookHandlers": {
+		"processChecklistItems": {
+			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\ProcessChecklistItems",
+			"services": [
+				"ChecklistManager", "HookContainer", "RevisionStore"
+			]
+		},
+		"runDatabaseUpdates": {
+			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\RunDatabaseUpdates"
+		},
+		"userpreference": {
+			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\UserPreference"
+		},
+		"modifyOutput": {
+			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\ModifyOutput",
+			"services": [ "ChecklistManager" ]
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"RestRoutes": [
+		{
+			"path": "/checklists",
+			"class": "\\MediaWiki\\Extension\\Checklists\\Rest\\ListChecklists",
+			"services": [ "ChecklistManager", "TitleFactory", "UserFactory" ]
+		},
+		{
+			"path": "/checklists/{id}",
+			"class": "\\MediaWiki\\Extension\\Checklists\\Rest\\RetrieveChecklist",
+			"services": [ "ChecklistManager" ]
+		},
+		{
+			"method": "POST",
+			"path": "/checklists/{id}/set_status",
+			"class": "\\MediaWiki\\Extension\\Checklists\\Rest\\UpdateStatus",
+			"services": [ "ChecklistManager" ]
+		}
+	],
+	"ParsoidModules": [
+		"\\MediaWiki\\Extension\\Checklists\\ParsoidExt\\ChecklistMarkup"
+	],
+	"manifest_version": 2,
+	"load_composer_autoloader": true
+}

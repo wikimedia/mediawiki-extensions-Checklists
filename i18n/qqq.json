@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Miriam Schlindwein"
+		]
+	},
+	"checklists": "Checklists",
+	"checklists-desc": "Description of Checklists for [[Special:Version]]",
+	"checklists-confirm-change-status": "Text in confirm dialog for user to be sure that new revision of the page should be created",
+	"checklists-not-allowed": "Text for error if checklist is identified on a not supported page",
+	"checklists-ve-tool-title": "Title for checklists ve tool",
+	"checklists-checkbox-dlg-title": "Title of dialog for checkbox",
+	"checklists-checkbox-dlg-action-done": "Label for dialog action \"Done\"",
+	"checklists-checkbox-dlg-action-cancel": "Label for dialog action \"Cancel\"",
+	"checklists-checkbox-dlg-hide-revision-label": "Label for checkbox to set preference that dialog with reminder for new revision should not be shown anymore",
+	"checklists-droplet-checklist-title": "Label for card which describes insertion of a checklist",
+	"checklists-droplet-checklist-description": "Label for card which describes insertion of a checklist"
+}

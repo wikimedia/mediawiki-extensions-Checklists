@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Miriam Schlindwein"
+		]
+	},
+	"checklists": "Checklists",
+	"checklists-desc": "Provides checklists in VisualEditor",
+	"checklists-confirm-change-status": "Are you sure you want to change the status of this checklist item? This will create a new revision of the page",
+	"checklists-not-allowed": "This page is not suitable for checklists. Common causes are that the page does not have <code>wikitext</code> content model or that is the page is not in a supported namespace",
+	"checklists-ve-tool-title": "Tasklist",
+	"checklists-checkbox-dlg-title": "Checkbox",
+	"checklists-checkbox-dlg-action-done": "Done",
+	"checklists-checkbox-dlg-action-cancel": "Cancel",
+	"checklists-checkbox-dlg-hide-revision-label": "Do not show this message again",
+	"checklists-droplet-checklist-title": "Tasklist",
+	"checklists-droplet-checklist-description": "Inserts a task list"
+}

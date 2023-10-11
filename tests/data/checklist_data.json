@@ -1,0 +1,32 @@
+[
+	{
+		"id": "89eab160d5b53808cea91533d6b012c4",
+		"value": false,
+		"text": "Do this",
+		"type": "check"
+	},
+	{
+		"id": "b0ef5d246eb31c989b4951a1f317cdc0",
+		"value": true,
+		"text": "Do that",
+		"type": "check"
+	},
+	{
+		"id": "75169af9a21d3f2a64f864695ecd4614",
+		"value": false,
+		"text": "Do the other thing",
+		"type": "check"
+	},
+	{
+		"id": "9f575ecc1872cd6c9faf97889b0e1b60",
+		"value": true,
+		"text": "One thing",
+		"type": "check"
+	},
+	{
+		"id": "4caa55b5cc5308d2d18e78f364ef2987",
+		"value": false,
+		"text": "Other thing",
+		"type": "check"
+	}
+]

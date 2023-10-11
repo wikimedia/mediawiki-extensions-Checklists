@@ -1,0 +1,10 @@
+// All these resolve to the same ID
+[] ABC [[User:ABC|Test]],!?
+[] <div>ABC</div> [[User:ABC|Test]],!?
+[] BCa [[User:ABC|Test]],!?
+[] ABC [[User:ABC|estt]]
+[] abc     ![[User:ABC]],!?
+[] [[User:ABC]]abc
+
+//This one is different, changed link target
+[] ABC [[User:BCE|Test]],!?

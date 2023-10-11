@@ -1,0 +1,57 @@
+( function ( $ ) {
+
+	function setValue( id, value ) {
+		$.ajax( {
+			url: mw.util.wikiScript( 'rest' ) + '/checklists/' + id + '/set_status',
+			type: 'POST',
+			data: JSON.stringify( { value: value } ),
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			// eslint-disable-next-line no-unused-vars
+			success: function ( data ) {
+				window.location.reload();
+			}
+		} );
+	}
+
+	$( function () {
+		$( '.checklist-li' ).each( function () {
+			var $this = $( this );
+			if ( mw.user.isAnon() ) {
+				$this.attr( 'disabled', true );
+				$this.addClass( 'checklist-item-disabled' );
+				return;
+			}
+			$this.on( 'click', function ( e ) {
+				if ( e.offsetX >= 0 ){
+					return;
+				}
+				// eslint-disable-next-line vars-on-top
+				var id = $this.data( 'checklist-item-id' );
+				if ( !id ) {
+					return;
+				}
+				// eslint-disable-next-line vars-on-top
+				var value = $this.data( 'value' ) === 1 ? '' : 'checked';
+				if ( !mw.user.options.get( 'checklists-hide-revision-dlg' ) ) {
+					// eslint-disable-next-line no-undef
+					require( './bootstrap.js' );
+					require( './ui/CheckboxDialog.js' );
+					// eslint-disable-next-line vars-on-top
+					var windowManager = new OO.ui.WindowManager();
+					$( document.body ).append( windowManager.$element );
+
+					// eslint-disable-next-line vars-on-top
+					var dialog = new checklists.ui.CheckboxDialog();
+					dialog.on( 'actioncompleted', function () {
+						setValue( id, value );
+					} );
+					windowManager.addWindows( [ dialog ] );
+					windowManager.openWindow( dialog );
+				} else {
+					setValue( id, value );
+				}
+			} );
+		} );
+	} );
+} )( jQuery );
