@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ukhant Erdemt",
+			"Алия"
+		]
+	},
+	"checklists": "Кинлтын халх",
+	"checklists-desc": "VisualEditor-т шалһх җигсәлтиг өгнә",
+	"checklists-confirm-change-status": "Та эн кинлтын халхин статус хүврүлхиг күсч бәәнәт? Эннь халхин шин хүвлвриг үүскнә",
+	"checklists-not-allowed": "Эн халх шалһх халхд тохрмҗ уга. Ниитлг шилтәнь ― халх <code>wikitext</code> аһулһин үлгүр эс гиҗ тус халх демҗсн нернә талврт уга.",
+	"checklists-ve-tool-title": "Даалһврин җигсәлт",
+	"checklists-checkbox-dlg-title": "Темдгин хәәрцг",
+	"checklists-checkbox-dlg-action-done": "Кегдв",
+	"checklists-checkbox-dlg-action-cancel": "Цуцлх",
+	"checklists-checkbox-dlg-hide-revision-label": "Эн бичгиг дәкн эс үзүлх",
+	"checklists-droplet-checklist-title": "Даалһврин җигсәлт",
+	"checklists-droplet-checklist-description": "Даалһврин җигсәлтиг орулна"
+}

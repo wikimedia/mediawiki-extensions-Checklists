@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"checklists": "Контролни списоци",
+	"checklists-desc": "Дава констролни списоци во Нагледниот уредник",
+	"checklists-confirm-change-status": "Дали сигурно сакате да го смените статусот на оваа ставка во контролниот список? Ова ќе создаде нова преработка на страницата",
+	"checklists-not-allowed": "Оваа страница не е погодна за контролни списоци. Вообичаени причини за ова се немањето на содржинскиот модел <code>wikitext</code> во страницата или дека таа не е во поддржан именски простор",
+	"checklists-ve-tool-title": "Список на задачи",
+	"checklists-checkbox-dlg-title": "Штикларник",
+	"checklists-checkbox-dlg-action-done": "Готово",
+	"checklists-checkbox-dlg-action-cancel": "Откажи",
+	"checklists-checkbox-dlg-hide-revision-label": "Повеќе не ја покажувај поракава",
+	"checklists-droplet-checklist-title": "Список на задачи",
+	"checklists-droplet-checklist-description": "Вметнува список на задачи"
+}

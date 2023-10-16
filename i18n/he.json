@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"checklists-ve-tool-title": "רשימת מטלות",
+	"checklists-checkbox-dlg-title": "תיבת סימון",
+	"checklists-checkbox-dlg-action-done": "בוצע",
+	"checklists-checkbox-dlg-action-cancel": "ביטול",
+	"checklists-checkbox-dlg-hide-revision-label": "לא להציג את ההודעה הזאת שוב",
+	"checklists-droplet-checklist-title": "רשימת מטלות",
+	"checklists-droplet-checklist-description": "הוספת רשימת מטלות"
+}

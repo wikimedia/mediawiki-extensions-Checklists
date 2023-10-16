@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"checklists": "Controlelijsten",
+	"checklists-desc": "Biedt controlelijsten in VisualEditor",
+	"checklists-confirm-change-status": "Weet u zeker dat u de status van dit onderdeel van de controlelijst wilt wijzigen? Hierdoor wordt een nieuwe versie van de pagina aangemaakt.",
+	"checklists-not-allowed": "Deze pagina is niet geschikt voor controlelijsten. Veelvoorkomende oorzaken zijn dat de pagina niet van het inhoudsmodel <code>wikitext</code> is of dat de pagina zich niet in een ondersteunde naamruimte bevindt.",
+	"checklists-ve-tool-title": "Takenlijst",
+	"checklists-checkbox-dlg-title": "Selectievakje",
+	"checklists-checkbox-dlg-action-done": "Klaar",
+	"checklists-checkbox-dlg-action-cancel": "Annuleren",
+	"checklists-checkbox-dlg-hide-revision-label": "Dit bericht niet meer weergeven",
+	"checklists-droplet-checklist-title": "Takenlijst",
+	"checklists-droplet-checklist-description": "Voegt een takenlijst in"
+}

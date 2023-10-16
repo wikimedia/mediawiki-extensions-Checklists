@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"checklists": "Listas de controlo",
+	"checklists-desc": "Forni listas de controlo in VisualEditor",
+	"checklists-confirm-change-status": "Es tu secur de voler cambiar le stato de iste entrata de lista de controlo? Isto creara un nove version del pagina.",
+	"checklists-not-allowed": "Iste pagina non es apte pro listas de controlo. Causas commun es que le pagina non es del modello de contento <code>wikitext</code> o que le pagina non es in un spatio de nomines supportate.",
+	"checklists-ve-tool-title": "Listas de cargas",
+	"checklists-checkbox-dlg-title": "Quadrato de selection",
+	"checklists-checkbox-dlg-action-done": "Facite",
+	"checklists-checkbox-dlg-action-cancel": "Cancellar",
+	"checklists-checkbox-dlg-hide-revision-label": "Non monstrar iste message de novo",
+	"checklists-droplet-checklist-title": "Listas de cargas",
+	"checklists-droplet-checklist-description": "Insere un lista de cargas"
+}

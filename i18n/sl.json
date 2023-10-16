@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"checklists": "Kontrolni seznami",
+	"checklists-desc": "Zagotavlja kontrolne sezname v Vizualnem urejevalniku",
+	"checklists-confirm-change-status": "Ste prepričani, da želite spremeniti status tega elementa na kontrolnem seznamu? To bo ustvarilo novo redakcijo strani",
+	"checklists-not-allowed": "Ta stran ni primerna za kontrolne sezname. Pogosti vzroki so, da stran nima vsebinskega modela  <code>wikitext</code> ali da stran ni v podprtem imenskem prostoru.",
+	"checklists-ve-tool-title": "Seznam opravil",
+	"checklists-checkbox-dlg-title": "Potrditveno polje",
+	"checklists-checkbox-dlg-action-done": "Opravljeno",
+	"checklists-checkbox-dlg-action-cancel": "Prekliči",
+	"checklists-checkbox-dlg-hide-revision-label": "Tega sporočila ne prikaži več",
+	"checklists-droplet-checklist-title": "Seznam opravil",
+	"checklists-droplet-checklist-description": "Vstavi seznam opravil"
+}
