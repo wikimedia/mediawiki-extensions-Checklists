@@ -4,6 +4,10 @@
 			"Amire80"
 		]
 	},
+	"checklists": "רשימות תיוג",
+	"checklists-desc": "אספקת רשימות תיוג בעורך החזותי",
+	"checklists-confirm-change-status": "האם ברצונך באמת לשנות את המצב של פריט רשימת התיוג הזה? הפעולה הזאת תיצור גרסה חדשה של הדף",
+	"checklists-not-allowed": "הדף הזה אינו מתאים לרשימות תיוג. סיבות נפוצות הן שמודל התוכן הדף אינו <code>wikitext</code> או שהדף אינו נמצא במרחב שם נתמך",
 	"checklists-ve-tool-title": "רשימת מטלות",
 	"checklists-checkbox-dlg-title": "תיבת סימון",
 	"checklists-checkbox-dlg-action-done": "בוצע",
