@@ -27,7 +27,7 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$doc = ContentUtils::createAndLoadDocument( $inputHtml );
 		$body = DOMCompat::getBody( $doc );
 		$processor = new ChecklistProcessor();
-		$processor->wtPostprocess( $mockApi, $body, [], false );
+		$processor->wtPostprocess( $mockApi, $body, [] );
 
 		$expectedDoc = new Document();
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
