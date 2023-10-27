@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"BlueCamille"
+		]
+	},
+	"checklists-ve-tool-title": "Liste de tâches",
+	"checklists-checkbox-dlg-title": "Case à cocher",
+	"checklists-checkbox-dlg-action-done": "Terminé",
+	"checklists-checkbox-dlg-action-cancel": "Annuler",
+	"checklists-checkbox-dlg-hide-revision-label": "Ne plus afficher ce message",
+	"checklists-droplet-checklist-title": "Liste de tâches",
+	"checklists-droplet-checklist-description": "Insère une liste de tâches"
+}
