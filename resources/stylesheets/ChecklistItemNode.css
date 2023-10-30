@@ -1,5 +1,5 @@
-.checklist-li:before,
-.checklist-ce-checklistItemNode:before {
+.checklist-li::before,
+.checklist-ce-checklistItemNode::before {
 	cursor: pointer;
 	content: '';
 	vertical-align: middle;
@@ -9,7 +9,7 @@
 	background: url( data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBpZD0ic3ZnOCI+CiAgICA8cmVjdCB5PSIuNSIgeD0iLjUiIGhlaWdodD0iMTUiIHdpZHRoPSIxNSIgaWQ9InJlY3Q4MjEiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+Cjwvc3ZnPgo= ) center center no-repeat;
 }
 
-.checklist-li.checklist-item-disabled:before {
+.checklist-li.checklist-item-disabled::before {
 	cursor: default;
 }
 
@@ -20,8 +20,8 @@
 	height: 1.5em;
 }
 
-.checklist-li.checked:before,
-.checklist-ce-checklistItemNode.checked:before {
+.checklist-li.checked::before,
+.checklist-ce-checklistItemNode.checked::before {
 	background-image: url( data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBpZD0ic3ZnOCI+CiAgICA8cmVjdCB5PSIuNSIgeD0iLjUiIGhlaWdodD0iMTUiIHdpZHRoPSIxNSIgaWQ9InJlY3Q4MjEiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+CiAgICA8cGF0aCBkPSJNMy45IDcuNzhsMyAzIDYtNiIgc3R5bGU9InN0cm9rZTojMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO2ZpbGw6bm9uZTsiLz4KPC9zdmc+Cg== );
 }
 
@@ -30,7 +30,7 @@
 	position: relative;
 }
 
-.checklist-li:before {
+.checklist-li::before {
 	cursor: pointer;
 	content: '';
 	position: absolute;
@@ -46,12 +46,12 @@ ul.checklist,
 	margin-left: 2em;
 }
 
-.checklist-li:before,
-.ve-ce-documentNode[ dir='ltr' ] .checklist-li:before {
+.checklist-li::before,
+.ve-ce-documentNode[ dir='ltr' ] .checklist-li::before {
 	left: -2em;
 }
 
-.checklist-li.checklist-checked:before {
+.checklist-li.checklist-checked::before {
 	background-image: url( data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBpZD0ic3ZnOCI+CiAgICA8cmVjdCB5PSIuNSIgeD0iLjUiIGhlaWdodD0iMTUiIHdpZHRoPSIxNSIgaWQ9InJlY3Q4MjEiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+CiAgICA8cGF0aCBkPSJNMy45IDcuNzhsMyAzIDYtNiIgc3R5bGU9InN0cm9rZTojMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO2ZpbGw6bm9uZTsiLz4KPC9zdmc+Cg== );
 }
 
@@ -61,5 +61,5 @@ ul.checklist,
 }
 
 .droplet .icon-droplet.droplet-tasklist {
-	background-image: url( './../images/contentdroplets-tasklist-icon.svg' );
+	background-image: url( ./../images/contentdroplets-tasklist-icon.svg );
 }

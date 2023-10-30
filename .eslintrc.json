@@ -1,7 +1,8 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client",
+		"wikimedia/client-es5",
+		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
 	"globals": {
@@ -36,14 +37,14 @@
 		"no-useless-concat": "warn",
 		"no-mixed-spaces-and-tabs": "warn",
 		"no-useless-escape": "warn",
-		"vars-on-top": "warn",
+		"vars-on-top": "off",
 		"curly": "warn",
 		"quotes": "warn",
 		"camelcase": "warn",
 		"no-underscore-dangle": "warn",
 		"indent": "warn",
 		"valid-jsdoc": "warn",
-		"one-var": "warn",
+		"one-var": "off",
 		"no-unneeded-ternary": "warn",
 		"no-undef": "warn",
 		"no-unused-vars": "warn",

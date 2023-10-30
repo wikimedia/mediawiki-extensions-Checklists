@@ -1,4 +1,4 @@
-checklists.ve.tools.ChecklistItemTool = function ChecklistItemTool () {
+checklists.ve.tools.ChecklistItemTool = function ChecklistItemTool() {
 	checklists.ve.tools.ChecklistItemTool.super.apply( this, arguments );
 };
 
