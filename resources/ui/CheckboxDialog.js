@@ -2,7 +2,7 @@ checklists.ui.CheckboxDialog = function ( config ) {
 	config = config || {};
 	config.size = 'medium';
 	checklists.ui.CheckboxDialog.super.call( this, config );
-}
+};
 
 OO.inheritClass( checklists.ui.CheckboxDialog, OO.ui.ProcessDialog );
 
@@ -40,7 +40,7 @@ checklists.ui.CheckboxDialog.prototype.initialize = function () {
 
 checklists.ui.CheckboxDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		const setPref = this.setUserPreference();
+		var setPref = this.setUserPreference();
 		setPref.next( this.onActionDone, this );
 		return setPref;
 	}
@@ -54,7 +54,7 @@ checklists.ui.CheckboxDialog.prototype.onActionDone = function ( action ) {
 };
 
 checklists.ui.CheckboxDialog.prototype.setUserPreference = function () {
-	const dfd = new $.Deferred();
+	var dfd = new $.Deferred();
 	var checked = this.checkbox.isSelected();
 	if ( checked ) {
 		if ( !mw.user.isAnon() ) {

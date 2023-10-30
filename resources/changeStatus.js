@@ -15,6 +15,7 @@
 	}
 
 	$( function () {
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.checklist-li' ).each( function () {
 			var $this = $( this );
 			if ( mw.user.isAnon() ) {
@@ -23,25 +24,23 @@
 				return;
 			}
 			$this.on( 'click', function ( e ) {
-				if ( e.offsetX >= 0 ){
+				if ( e.offsetX >= 0 ) {
 					return;
 				}
-				// eslint-disable-next-line vars-on-top
+
 				var id = $this.data( 'checklist-item-id' );
 				if ( !id ) {
 					return;
 				}
-				// eslint-disable-next-line vars-on-top
+
 				var value = $this.data( 'value' ) === 1 ? '' : 'checked';
 				if ( !mw.user.options.get( 'checklists-hide-revision-dlg' ) ) {
-					// eslint-disable-next-line no-undef
 					require( './bootstrap.js' );
 					require( './ui/CheckboxDialog.js' );
-					// eslint-disable-next-line vars-on-top
+
 					var windowManager = new OO.ui.WindowManager();
 					$( document.body ).append( windowManager.$element );
 
-					// eslint-disable-next-line vars-on-top
 					var dialog = new checklists.ui.CheckboxDialog();
 					dialog.on( 'actioncompleted', function () {
 						setValue( id, value );
@@ -54,4 +53,4 @@
 			} );
 		} );
 	} );
-} )( jQuery );
+}( jQuery ) );
