@@ -25,10 +25,10 @@ checklists.ve.ce.ChecklistItemNode.static.splitOnEnter = true;
 
 checklists.ve.ce.ChecklistItemNode.prototype.onClick = function ( e ) {
 	if ( e.target === this.$element[ 0 ] ) {
-		// eslint-disable-next-line vars-on-top
 		var isChecked = this.getModel().getAttribute( 'checked' );
 		this.$element.toggleClass( 'checklist-checked', !isChecked );
-		var fragment = this.getRoot().getSurface().getModel().getLinearFragment( this.getOuterRange(), true );
+		var fragment =
+			this.getRoot().getSurface().getModel().getLinearFragment( this.getOuterRange(), true );
 		fragment.changeAttributes( { checked: !isChecked } );
 	}
 };
@@ -37,6 +37,7 @@ checklists.ve.ce.ChecklistItemNode.prototype.onClick = function ( e ) {
  * @param {string} key Attribute key
  * @param {string} from Old value
  * @param {string} to New value
+ * @return {void}
  */
 checklists.ve.ce.ChecklistItemNode.prototype.onAttributeChange = function ( key ) {
 	if ( key === 'checked' ) {

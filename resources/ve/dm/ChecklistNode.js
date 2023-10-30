@@ -12,7 +12,7 @@
  *
  * @constructor
  * @param {Object} [element] Reference to element in linear model
- * @param {ve.dm.Node[]} [children]
+ * @param {ve.dm.Node[]} [children] Children
  */
 checklists.ve.dm.CheckListNode = function () {
 	// Parent constructor
