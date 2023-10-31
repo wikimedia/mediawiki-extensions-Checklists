@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"checklists": "核對清單",
+	"checklists-desc": "在視覺化編輯器中提供核對清單",
+	"checklists-confirm-change-status": "您確定要更改此核對清單項目的狀態嗎？這會建立該頁面新的修訂版本",
+	"checklists-not-allowed": "此頁面不適合核對清單。常見原因是該頁面沒有 <code>wikitext</code> 的內容模型，或是頁面不在支援的命名空間中",
+	"checklists-ve-tool-title": "任務清單",
+	"checklists-checkbox-dlg-title": "核取方塊",
+	"checklists-checkbox-dlg-action-done": "完成",
+	"checklists-checkbox-dlg-action-cancel": "取消",
+	"checklists-checkbox-dlg-hide-revision-label": "不要再顯示此訊息",
+	"checklists-droplet-checklist-title": "任務清單",
+	"checklists-droplet-checklist-description": "插入任務清單"
+}
