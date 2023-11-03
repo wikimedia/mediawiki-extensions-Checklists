@@ -44,7 +44,7 @@ class ChecklistDroplet extends GenericDroplet {
 	 * @return array
 	 */
 	public function getCategories(): array {
-		return [ 'content', 'data' ];
+		return [ 'content', 'data', 'featured' ];
 	}
 
 	/**
