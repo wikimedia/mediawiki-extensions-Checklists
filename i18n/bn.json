@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"Borhan"
 		]
 	},
-	"checklists-checkbox-dlg-action-done": "সম্পন্ন"
+	"checklists-checkbox-dlg-action-done": "সম্পন্ন",
+	"checklists-checkbox-dlg-action-cancel": "বাতিল করুন",
+	"checklists-checkbox-dlg-hide-revision-label": "এই বার্তাটি আর দেখাবেন না"
 }
