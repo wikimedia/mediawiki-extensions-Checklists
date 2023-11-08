@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jeeputer",
 			"Rulebased"
 		]
 	},
 	"checklists": "چک‌لیست‌ها",
-	"checklists-checkbox-dlg-action-cancel": "لغو"
+	"checklists-checkbox-dlg-action-cancel": "لغو",
+	"checklists-checkbox-dlg-hide-revision-label": "دیگر این پیام را نمایش نده",
+	"checklists-droplet-checklist-title": "فهرست وظایف"
 }
