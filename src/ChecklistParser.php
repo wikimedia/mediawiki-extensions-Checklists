@@ -121,7 +121,7 @@ class ChecklistParser {
 		// [] Text
 		// [x] Text
 		// [X] Text
-		preg_match( '/(\[([xX])?\])\s*(.*)$/', $line, $matches );
+		preg_match( '/^(\[([xX])?\])\s*(.*)$/', $line, $matches );
 		if ( empty( $matches ) ) {
 			return null;
 		}

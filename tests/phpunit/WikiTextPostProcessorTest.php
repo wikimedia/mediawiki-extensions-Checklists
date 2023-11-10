@@ -50,11 +50,11 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 				"/../data/parsoid-html-output.html",
 				'parsoid'
 			],
-			/*[
+			[
 				"/../data/html-input.html",
 				"/../data/html-output.html",
 				'html'
-			]*/
+			]
 		];
 	}
 }

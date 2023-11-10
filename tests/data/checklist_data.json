@@ -12,12 +12,6 @@
 		"type": "check"
 	},
 	{
-		"id": "75169af9a21d3f2a64f864695ecd4614",
-		"value": false,
-		"text": "Do the other thing",
-		"type": "check"
-	},
-	{
 		"id": "9f575ecc1872cd6c9faf97889b0e1b60",
 		"value": true,
 		"text": "One thing",
