@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\Checklists;
 class WikiTextPostProcessor {
 
 	/** @var array */
-	private const TAGS_TO_CHECK = [ 'td', 'p' ];
+	private const TAGS_TO_CHECK = [ 'p', 'td' ];
 
 	/** @var DOMNode */
 	private $root;
@@ -57,6 +57,7 @@ class WikiTextPostProcessor {
 						$parent->parentNode->insertBefore( $textOutsideChecklist, $parent );
 					}
 				}
+
 				$this->insertChecklistElements( $allNewElements, $parent );
 			}
 		}
