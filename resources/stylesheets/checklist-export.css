@@ -1,0 +1,30 @@
+.checklist-li {
+	list-style: none;
+	position: relative;
+	margin-left: 0;
+}
+
+/* stylelint-disable function-parentheses-space-inside, function-url-quotes */
+.checklist-li::before {
+	content: '';
+	vertical-align: middle;
+	display: inline-block;
+	width: 0.5cm;
+	height: 0.5cm;
+	/* @embed */
+	background-image: url('./images/unchecked.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 0.5cm 0.5cm;
+}
+
+.checklist-li.checklist-checked::before {
+	/* @embed */
+	background-image: url('./images/checked.png');
+}
+/* stylelint-enable function-parentheses-space-inside, function-url-quotes */
+
+.checklist-li.checklist-checked {
+	text-decoration: line-through;
+	color: #747474;
+}
