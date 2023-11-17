@@ -6,6 +6,7 @@ use DOMDocument;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Extension\Checklists\ListItemProvider;
 use MediaWiki\Extension\Checklists\WikiTextPostProcessor;
+use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\ParserAfterTidyHook;
 use MediaWiki\Hook\ParserBeforeInternalParseHook;
 use MediaWiki\Page\PageReference;
@@ -16,7 +17,7 @@ use OutputPage;
 use Parser;
 use Title;
 
-class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook {
+class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook, BeforePageDisplayHook {
 
 	private const UNSUPPORTED_NAMESPACES = [ NS_MEDIAWIKI, NS_FILE, NS_TEMPLATE ];
 
@@ -60,8 +61,7 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 			$this->showUnsupportedPageNotice( $parser, $text );
 			return;
 		}
-		$parser->getOutput()->addModules( [ 'ext.checklists.view' ] );
-		$parser->getOutput()->addModuleStyles( [ 'ext.checklists.styles' ] );
+
 		$this->itemLookupDone = true;
 	}
 
@@ -89,6 +89,21 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 
 		$newText = $document->saveHTML( $root );
 		$text = preg_replace( '#^<div>(.*?)</div>$#si', '$1', $newText );
+	}
+
+	/**
+	 *
+	 * @inheritDoc
+	 */
+	public function onBeforePageDisplay( $out, $skin ): void {
+		if ( !$this->isNamespaceSuitable( $this->titleFromPageReference( $out->getTitle() ) ) ) {
+			return;
+		}
+		if ( empty( $this->items ) ) {
+			return;
+		}
+		$out->addModules( [ 'ext.checklists.view' ] );
+		$out->addModuleStyles( [ 'ext.checklists.styles' ] );
 	}
 
 	/**

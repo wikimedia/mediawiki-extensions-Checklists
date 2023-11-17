@@ -97,7 +97,8 @@
 		"ArticleUndelete": "processChecklistItems",
 		"PageDelete": "processChecklistItems",
 		"GetPreferences": "userpreference",
-		"ParserAfterTidy": "modifyOutput"
+		"ParserAfterTidy": "modifyOutput",
+		"BeforePageDisplay":  "modifyOutput"
 	},
 	"HookHandlers": {
 		"processChecklistItems": {
