@@ -98,7 +98,8 @@
 		"PageDelete": "processChecklistItems",
 		"GetPreferences": "userpreference",
 		"ParserAfterTidy": "modifyOutput",
-		"BeforePageDisplay":  "modifyOutput"
+		"BeforePageDisplay":  "modifyOutput",
+		"BSUEModulePDFBeforeAddingStyleBlocks": "pdf"
 	},
 	"HookHandlers": {
 		"processChecklistItems": {
@@ -116,6 +117,10 @@
 		"modifyOutput": {
 			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\ModifyOutput",
 			"services": [ "ChecklistManager" ]
+		},
+		"pdf": {
+			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\AddPDFStyles",
+			"services": [ "MainConfig" ]
 		}
 	},
 	"ServiceWiringFiles": [
