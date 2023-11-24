@@ -34,7 +34,7 @@ class ChecklistParser {
 		foreach ( $lines as $line ) {
 			$item = $this->parseLine( $line, $target, $returnLine );
 			if ( is_array( $item ) ) {
-				$checklist[] = $item;
+				$checklist[$item['id']] = $item;
 			}
 		}
 		return $checklist;
