@@ -83,6 +83,9 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 
 		$checklistElements = $this->getChecklistElements( $document );
 		foreach ( $checklistElements as $index => $checklistEl ) {
+			if ( !isset( $this->items[$index] ) ) {
+				continue;
+			}
 			$checklistEl->setAttribute( 'data-checklist-item-id', $this->items[$index]['id'] );
 			$checklistEl->setAttribute( 'data-value', $this->items[$index]['value'] ? '1' : '0' );
 		}
