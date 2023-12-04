@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ата"
+		]
+	},
+	"checklists": "Списки перевірки",
+	"checklists-desc": "Забезпечує списки перевірки у візуальному редакторі",
+	"checklists-confirm-change-status": "Ви впевнені, що бажаєте змінити статус цього пункту списку перевірки? Це створить нову версію сторінки",
+	"checklists-not-allowed": "Ця сторінка не підходить для списків перевірки. Поширені причини полягають у тому, що сторінка не має моделі вмісту <code>wikitext</code> або сторінка не входить до підтримуваного простору назв",
+	"checklists-ve-tool-title": "Список завдань",
+	"checklists-checkbox-dlg-title": "Галочка",
+	"checklists-checkbox-dlg-action-done": "Готово",
+	"checklists-checkbox-dlg-action-cancel": "Скасувати",
+	"checklists-checkbox-dlg-hide-revision-label": "Більше не показувати цього повідомлення",
+	"checklists-droplet-checklist-title": "Список завдань",
+	"checklists-droplet-checklist-description": "Вставляє список завдань"
+}
