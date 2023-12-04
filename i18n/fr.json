@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"BlueCamille"
+			"BlueCamille",
+			"Wnagxsi"
 		]
 	},
+	"checklists": "Listes de contrôle",
 	"checklists-ve-tool-title": "Liste de tâches",
 	"checklists-checkbox-dlg-title": "Case à cocher",
 	"checklists-checkbox-dlg-action-done": "Terminé",
