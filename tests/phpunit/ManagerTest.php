@@ -86,22 +86,27 @@ class ManagerTest extends TestCase {
 
 		$storeMock->expects( $this->once() )
 			->method( 'delete' )
-			->withConsecutive(
-				[ $this->callback( static function ( ChecklistItem $item ) {
+			->with(
+				$this->callback( static function ( ChecklistItem $item ) {
 					return $item->getId() === md5( 'dummy' ) && $item->getText() === 'foo' && $item->getValue();
-				} ) ]
+				} )
 			);
+		$expectedPersistItemCheckers = [
+			static function ( ChecklistItem $item ) {
+				return $item->getId() === md5( 'abfoor#1' ) &&
+					$item->getText() === 'DUMMY' && !$item->getValue();
+			},
+			static function ( ChecklistItem $item ) {
+				return $item->getId() === md5( 'bar' ) && $item->getText() === 'bar' && $item->getValue();
+			}
+		];
 		$storeMock->expects( $this->exactly( 2 ) )
 			->method( 'persist' )
-			->withConsecutive(
-				[ $this->callback( static function ( ChecklistItem $item ) {
-					return $item->getId() === md5( 'abfoor#1' ) &&
-						$item->getText() === 'DUMMY' && !$item->getValue();
-				} ) ],
-				[ $this->callback( static function ( ChecklistItem $item ) {
-					return $item->getId() === md5( 'bar' ) && $item->getText() === 'bar' && $item->getValue();
-				} ) ]
-			);
+			->willReturnCallback( function ( ChecklistItem $item ) use ( &$expectedPersistItemCheckers ) {
+				$curChecker = array_shift( $expectedPersistItemCheckers );
+				$this->assertTrue( $curChecker( $item ) );
+				return false;
+			} );
 		return new ChecklistManager(
 			$parserMock, $storeMock,
 			$this->createMock( RevisionStore::class ),
