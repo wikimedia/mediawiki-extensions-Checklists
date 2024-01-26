@@ -57,7 +57,29 @@ class WikiTextPostProcessor {
 						$parent->parentNode->insertBefore( $textOutsideChecklist, $parent );
 					}
 				}
+				if ( $this->inTable && $firstElementIsChecklist ) {
+					$children = $parent->childNodes;
+					$nonLiveChildren = [];
+					foreach ( $children as $child ) {
+						$nonLiveChildren[] = $child;
+					}
+					if ( count( $children ) > 0 ) {
+						while ( $parent->hasChildNodes() ) {
+							$parent->removeChild( $parent->lastChild );
+						}
+					}
 
+					$this->insertChecklistElements( $allNewElements, $parent );
+					$first = true;
+					foreach ( $nonLiveChildren as $child ) {
+						if ( $first || $child->nodeType === XML_TEXT_NODE ) {
+							$first = false;
+							continue;
+						}
+						$parent->appendChild( $child );
+					}
+					continue;
+				}
 				$this->insertChecklistElements( $allNewElements, $parent );
 			}
 		}
@@ -131,6 +153,9 @@ class WikiTextPostProcessor {
 		$listItemEl = null;
 		foreach ( $allElements as $element ) {
 			if ( $element->nodeType !== XML_TEXT_NODE ) {
+				if ( $element->nodeName === 'ul' ) {
+					break;
+				}
 				$childElements[] = $element;
 			} else {
 				$elementText = $element->wholeText;
@@ -139,9 +164,6 @@ class WikiTextPostProcessor {
 					$matches = $this->checkForChecklistElements( $text );
 					if ( !$matches ) {
 						if ( !$text ) {
-							if ( $this->inTable && count( $childElements ) > 0 ) {
-								$allNewElements = $childElements;
-							}
 							continue;
 						}
 						$child = $this->root->ownerDocument->createTextNode( $text );
