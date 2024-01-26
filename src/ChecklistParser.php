@@ -121,15 +121,17 @@ class ChecklistParser {
 		// [] Text
 		// [x] Text
 		// [X] Text
-		preg_match( '/^(\[([xX])?\])\s*(.*)$/', $line, $matches );
+		preg_match( '/^(\|?)(\[([xX])?\])\s*(.*)$/', $line, $matches );
 		if ( empty( $matches ) ) {
 			return null;
 		}
-		$checked = strtolower( $matches[2] ?? '' ) === 'x';
-		$text = trim( $matches[3] );
-
+		$checked = strtolower( $matches[3] ?? '' ) === 'x';
+		$text = trim( $matches[4] );
 		$item = [ 'id' => $this->getId( $text, $target ), 'text' => $text, 'value' => $checked ];
 		if ( $returnLine ) {
+			if ( strpos( $line, '|' ) === 0 ) {
+				$line = substr( $line, 1 );
+			}
 			$item['line'] = $line;
 		}
 		return $item;
