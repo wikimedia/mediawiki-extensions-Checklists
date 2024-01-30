@@ -98,7 +98,7 @@
 		"PageDelete": "processChecklistItems",
 		"GetPreferences": "userpreference",
 		"ParserAfterTidy": "modifyOutput",
-		"BeforePageDisplay":  "modifyOutput",
+		"BeforePageDisplay": "modifyOutput",
 		"BSUEModulePDFBeforeAddingStyleBlocks": "pdf"
 	},
 	"HookHandlers": {
