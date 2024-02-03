@@ -6,9 +6,6 @@
 		"wikimedia/mediawiki"
 	],
 	"globals": {
-		"$": "readonly",
-		"OO": "readonly",
-		"mw": "readonly",
 		"checklists": "readonly",
 		"ve": "readonly",
 		"jQuery": "readonly"
