@@ -10,7 +10,9 @@ class ListItemProvider implements IListItemProvider {
 	public function createNewListItem( $document, $prefix, $text ) {
 		$checklistDescriptionText = substr( $text, strlen( $prefix ), strlen( $text ) );
 		$checkedClass = $this->getClassForStatus( $prefix );
-		$listItemEl = $document->ownerDocument->createElement( 'li', $checklistDescriptionText );
+		$listItemEl = $document->ownerDocument->createElement( 'li' );
+		$checklistDescriptionTextNode = $document->ownerDocument->createTextNode( $checklistDescriptionText );
+		$listItemEl->appendChild( $checklistDescriptionTextNode );
 		$classes = 'checklist-li ' . $checkedClass;
 		$listItemEl->setAttribute( 'class', $classes );
 		if ( $checkedClass === 'checklist-checked' ) {
