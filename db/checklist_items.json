@@ -1,0 +1,71 @@
+[
+	{
+		"name": "checklist_items",
+		"columns": [
+			{
+				"name": "ci_id",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_page",
+				"type": "integer",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_author",
+				"type": "integer",
+				"options": {
+					"unsigned": true,
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_value",
+				"type": "binary",
+				"options": {
+					"length": 255,
+					"notnull": false,
+					"default": ""
+				}
+			},
+			{
+				"name": "ci_created",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_touched",
+				"type": "mwtimestamp",
+				"options": {
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_hash",
+				"type": "binary",
+				"options": {
+					"length": 32,
+					"notnull": true
+				}
+			},
+			{
+				"name": "ci_text",
+				"type": "text",
+				"options": {
+					"notnull": false
+				}
+			}
+		],
+		"indexes": [],
+		"pk": [ "ci_id" ]
+	}
+]
