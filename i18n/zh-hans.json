@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Anterdc99"
+		]
+	},
+	"checklists": "检查表",
+	"checklists-desc": "在可视化编辑器中提供检查表",
+	"checklists-confirm-change-status": "您确定要更改此检查表项的状态吗？这会创建此页面新的修订版本",
+	"checklists-not-allowed": "此页面不适合检查表。常见原因是此页面没有<code>wikitext</code>内容模型，或页面不在受支持的命名空间中",
+	"checklists-ve-tool-title": "任务列表",
+	"checklists-checkbox-dlg-title": "复选框",
+	"checklists-checkbox-dlg-action-done": "完成",
+	"checklists-checkbox-dlg-action-cancel": "取消",
+	"checklists-checkbox-dlg-hide-revision-label": "不再显示此消息",
+	"checklists-droplet-checklist-title": "任务列表",
+	"checklists-droplet-checklist-description": "插入任务列表"
+}
