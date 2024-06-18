@@ -30,7 +30,7 @@ checklists.ve.dm.ChecklistItemNode.static.toDomElements = function ( dataElement
 	var listItem = doc.createElement( 'li' );
 	listItem.setAttribute( 'rel', 'mw:checklist' );
 	listItem.setAttribute( 'class', 'checklist-li' );
-	if ( dataElement.attributes.checked === true ) {
+	if ( dataElement.attributes.checked === true || dataElement.attributes.checked === 'checked' ) {
 		listItem.setAttribute( 'checked', 'checked' );
 		listItem.removeAttribute( 'class' );
 		listItem.setAttribute( 'class', 'checklist-li checklist-checked' );
