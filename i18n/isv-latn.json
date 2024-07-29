@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"checklists": "Kontrolne spisky",
+	"checklists-desc": "Davaje kontrolne spisky v Vizualnom Redaktoru",
+	"checklists-confirm-change-status": "Jeste li uvěrjeni, že hočete izměniti status tutogo elementa na kontrolnom spisku? Rezultat bude stvorjenje novoj versije stranice",
+	"checklists-not-allowed": "Tuta stranica ne podhodi za kontrolne spisky. Česte pričiny sut, že stranica ne imaje modela sodržanja <code>vikitekst</code> ili ne nahodi se v poddrživanom imennom prostoru",
+	"checklists-ve-tool-title": "Spisok zadanij",
+	"checklists-checkbox-dlg-title": "Izborno polje",
+	"checklists-checkbox-dlg-action-done": "Gotovo",
+	"checklists-checkbox-dlg-action-cancel": "Anulovati",
+	"checklists-checkbox-dlg-hide-revision-label": "Veče ne pokazyvati tuto soobčenje",
+	"checklists-droplet-checklist-title": "Spisok zadanij",
+	"checklists-droplet-checklist-description": "Vstavjaje spisok zadanij"
+}
