@@ -73,8 +73,11 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		if ( empty( $this->items ) ) {
 			return;
 		}
+
 		$document = new DOMDocument();
+		$this->sanitizeText( $text );
 		$document->loadHTML( "<html><head><meta charset=\"UTF-8\"></head><body><div>$text</div></body></html>" );
+
 		$body = $document->getElementsByTagName( 'body' )->item( 0 );
 		$root = $body->firstChild;
 
@@ -94,6 +97,7 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		}
 
 		$newText = $document->saveHTML( $root );
+		$this->unSanitizeText( $newText );
 		$text = preg_replace( '#^<div>(.*?)</div>$#si', '$1', $newText );
 	}
 
@@ -185,4 +189,35 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	private function isContentModelSuitable( ?Title $title ): bool {
 		return $title instanceof Title && $title->getContentModel() === CONTENT_MODEL_WIKITEXT;
 	}
+
+	/**
+	 * @param string &$text
+	 * @return void
+	 */
+	private function sanitizeText( string &$text ) {
+		// Find all tags like `<mw:...>`/`</mw:...>` and convert to `<MW...>`/`</MW...>`
+		$text = preg_replace_callback(
+			'/([<\/])mw:([a-z]+)([^>]*)>/i',
+			static function ( $matches ) {
+				return $matches[1] . 'MW' . strtoupper( $matches[2] ) . $matches[3] . '>';
+			},
+			$text
+		);
+	}
+
+	/**
+	 * @param string &$text
+	 * @return void
+	 */
+	private function unSanitizeText( string &$text ) {
+		// Find all tags like `<MW...>`/`</MW...>` and convert to `<mw:...>`/`</mw:...>`
+		$text = preg_replace_callback(
+			'/([<\/])MW([A-Z]+)([^>]*)>/i',
+			static function ( $matches ) {
+				return $matches[1] . 'mw:' . strtolower( $matches[2] ) . $matches[3] . '>';
+			},
+			$text
+		);
+	}
+
 }
