@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Checklists\Rest;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Rest\Validator\JsonBodyValidator;
 use MWException;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -41,11 +42,29 @@ class UpdateStatus extends SimpleHandler {
 			return $this->getResponseFactory()->createJson( [ 'error' => 'Checklist item not found' ], 404 );
 		}
 		$item = $items[0];
-		$rev = $this->manager->setStatusForChecklistItem( $item, $body[ 'value' ], $user );
+		$rev = $this->manager->setStatusForChecklistItem( $item, $body['value'], $user );
 		if ( !$rev ) {
 			return $this->getResponseFactory()->createJson( [ 'error' => 'Failed to update checklist' ], 500 );
 		}
 		return $this->getResponseFactory()->createJson( [ 'rev' => $rev->getId() ] );
+	}
+
+	/**
+	 * @param string $contentType
+	 *
+	 * @return JsonBodyValidator
+	 */
+	public function getBodyValidator( $contentType ) {
+		if ( $contentType !== 'application/json' ) {
+			return null;
+		}
+		return new JsonBodyValidator( [
+			'value' => [
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_DEFAULT => ''
+			],
+		] );
 	}
 
 	/**
@@ -58,28 +77,12 @@ class UpdateStatus extends SimpleHandler {
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true,
 			],
-		];
-	}
-
-	/**
-	 * @return array[]
-	 */
-	public function getBodyParamSettings(): array {
-		return [
 			'value' => [
-				self::PARAM_SOURCE => 'body',
+				self::PARAM_SOURCE => 'post',
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
 				ParamValidator::PARAM_DEFAULT => ''
 			],
-		];
-	}
-
-	public function getSupportedRequestTypes(): array {
-		return [
-			'application/x-www-form-urlencoded',
-			'multipart/form-data',
-			'application/json'
 		];
 	}
 }
