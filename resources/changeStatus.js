@@ -23,8 +23,14 @@
 				$this.addClass( 'checklist-item-disabled' );
 				return;
 			}
-			$this.on( 'click', function ( e ) {
+			$this.attr( 'tabindex', 0 );
+
+			$this.on( 'click keypress', function ( e ) {
 				if ( e.offsetX >= 0 ) {
+					return;
+				}
+
+				if ( e.type === 'keypress' && e.keyCode != 13 ) {
 					return;
 				}
 
