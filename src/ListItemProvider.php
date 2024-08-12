@@ -15,9 +15,13 @@ class ListItemProvider implements IListItemProvider {
 		$listItemEl->appendChild( $checklistDescriptionTextNode );
 		$classes = 'checklist-li ' . $checkedClass;
 		$listItemEl->setAttribute( 'class', $classes );
+		$listItemEl->setAttribute( 'role', 'checkbox' );
+		$ariaChecked = '';
 		if ( $checkedClass === 'checklist-checked' ) {
 			$listItemEl->setAttribute( 'checked', 'checked' );
+			$ariaChecked = 'checked';
 		}
+		$listItemEl->setAttribute( 'aria-checked', $ariaChecked );
 		return $listItemEl;
 	}
 
