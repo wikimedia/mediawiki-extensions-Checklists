@@ -16,10 +16,10 @@ class ListItemProvider implements IListItemProvider {
 		$classes = 'checklist-li ' . $checkedClass;
 		$listItemEl->setAttribute( 'class', $classes );
 		$listItemEl->setAttribute( 'role', 'checkbox' );
-		$ariaChecked = '';
+		$ariaChecked = "false";
 		if ( $checkedClass === 'checklist-checked' ) {
 			$listItemEl->setAttribute( 'checked', 'checked' );
-			$ariaChecked = 'checked';
+			$ariaChecked = "true";
 		}
 		$listItemEl->setAttribute( 'aria-checked', $ariaChecked );
 		return $listItemEl;
