@@ -43,13 +43,13 @@ class ParsoidListItemProviderTest extends TestCase {
 				"[]",
 				"[] ABC Task with ÄÖÜ",
 				// phpcs:ignore Generic.Files.LineLength.TooLong
-				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li \" role=\"checkbox\" aria-checked=\"\" rel=\"mw:checklist\"> ABC Task with ÄÖÜ</li></body></html>"
+				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li \" role=\"checkbox\" aria-checked=\"false\" rel=\"mw:checklist\"> ABC Task with ÄÖÜ</li></body></html>"
 			],
 			[
 				"[ x ]",
 				"[ x ] My test äöüß",
 				// phpcs:ignore Generic.Files.LineLength.TooLong
-				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li checklist-checked\"role=\"checkbox\" checked aria-checked=\"checked\" rel=\"mw:checklist\"> My test äöüß</li>" .
+				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li checklist-checked\"role=\"checkbox\" checked aria-checked=\"true\" rel=\"mw:checklist\"> My test äöüß</li>" .
 				"</body></html>"
 			]
 		];
