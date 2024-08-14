@@ -43,13 +43,13 @@ class ListItemProviderTest extends TestCase {
 				"[]",
 				"[] ABC ÄÖÜé",
 				// phpcs:ignore Generic.Files.LineLength.TooLong
-				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li \" role=\"checkbox\" aria-checked=\"\"> ABC ÄÖÜé</li></body></html>"
+				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li \" role=\"checkbox\" aria-checked=\"false\"> ABC ÄÖÜé</li></body></html>"
 			],
 			[
 				"[ x ]",
 				"[ x ] My test äöüß",
 				// phpcs:ignore Generic.Files.LineLength.TooLong
-				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li checklist-checked\" role=\"checkbox\" checked aria-checked=\"checked\"> My test äöüß</li></body></html>"
+				"<html><head><meta charset=\"UTF-8\"><body><li class=\"checklist-li checklist-checked\" role=\"checkbox\" checked aria-checked=\"true\"> My test äöüß</li></body></html>"
 			],
 		];
 	}
