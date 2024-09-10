@@ -80,7 +80,8 @@
 				"checklists-checkbox-dlg-hide-revision-label"
 			],
 			"dependencies": [
-				"oojs"
+				"oojs",
+				"mediawiki.user"
 			]
 		}
 	},
