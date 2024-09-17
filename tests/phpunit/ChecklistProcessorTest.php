@@ -33,7 +33,10 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
 		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
 
-		$this->assertEqualXMLStructure( $body, $expectedBody->item( 0 ) );
+		$this->assertXmlStringEqualsXmlString(
+			$body,
+			$expectedBody->item( 0 )->sa
+		);
 	}
 
 	/**
