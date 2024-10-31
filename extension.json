@@ -5,7 +5,7 @@
 	"author": [
 		"[http://www.hallowelt.com Hallo Welt! GmbH]"
 	],
-	"url": "http://www.hallowelt.com",
+	"url": "https://www.mediawiki.org/wiki/Extension:Checklist",
 	"descriptionmsg": "checklists-desc",
 	"requires": {
 		"MediaWiki": ">= 1.39.0"
