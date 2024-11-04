@@ -2,15 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"BlueCamille",
-			"Wnagxsi"
+			"Wnagxsi",
+			"Mahabarata"
 		]
 	},
+	"checklists": "Listes de contrôle",
+	"checklists-desc": "Fournit des listes de contrôle dans VisualEditor",
+	"checklists-confirm-change-status": "Etes-vous sûr de vouloir modifier le statut de cet élément de la liste de contrôle ? Cela créera une nouvelle révision de la page",
+	"checklists-not-allowed": "Cette page n'est pas adaptée aux listes de contrôle. Les causes courantes sont que la page n'a pas de modèle de contenu <code>wikitext</code> ou que la page ne se trouve pas dans un espace de noms pris en charge",
 	"checklists-ve-tool-title": "Liste de tâches",
 	"checklists-checkbox-dlg-title": "Case à cocher",
 	"checklists-checkbox-dlg-action-done": "Terminé",
 	"checklists-checkbox-dlg-action-cancel": "Annuler",
 	"checklists-checkbox-dlg-hide-revision-label": "Ne plus afficher ce message",
 	"checklists-droplet-checklist-title": "Liste de tâches",
-	"checklists-droplet-checklist-description": "Insère une liste de tâches",
-	"checklists": "Listes de contrôle"
+	"checklists-droplet-checklist-description": "Insère une liste de tâches"
 }
