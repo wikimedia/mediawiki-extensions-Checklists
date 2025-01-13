@@ -1,10 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"NEHAOUA"
+			"NEHAOUA",
+			"Meno25"
 		]
 	},
+	"checklists": "قوائم المراجعة",
+	"checklists-desc": "توفير قوائم المراجعة في VisualEditor",
+	"checklists-confirm-change-status": "هل أنت متأكد من أنك تريد تغيير حالة عنصر قائمة المراجعة هذا؟ سيؤدي هذا إلى إنشاء نسخة جديدة من الصفحة",
+	"checklists-not-allowed": "هذه الصفحة غير مناسبة لقوائم المراجعة. الأسباب الشائعة هي أن الصفحة لا تحتوي على نموذج محتوى <code>wikitext</code> أو أن الصفحة ليست في مساحة اسم مدعومة",
+	"checklists-ve-tool-title": "قائمة المهام",
+	"checklists-checkbox-dlg-title": "مربع الاختيار",
 	"checklists-checkbox-dlg-action-done": "تم",
 	"checklists-checkbox-dlg-action-cancel": "إلغاء",
-	"checklists-checkbox-dlg-hide-revision-label": "لا تظهر هذه الرسالة مرة أخرى"
+	"checklists-checkbox-dlg-hide-revision-label": "لا تظهر هذه الرسالة مرة أخرى",
+	"checklists-droplet-checklist-title": "قائمة المهام",
+	"checklists-droplet-checklist-description": "إدراج قائمة المهام"
 }
