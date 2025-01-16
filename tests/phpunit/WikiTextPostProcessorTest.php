@@ -37,7 +37,10 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
 		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
 
-		$this->assertEqualXMLStructure( $body, $expectedBody->item( 0 ) );
+		$this->assertXmlStringEqualsXmlString(
+			$body->ownerDocument->saveHTML( $body ),
+			$expectedBody->item( 0 )->ownerDocument->saveHTML( $expectedBody->item( 0 ) )
+		);
 	}
 
 	/**
