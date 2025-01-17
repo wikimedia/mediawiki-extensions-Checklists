@@ -15,9 +15,9 @@ use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use StatusValue;
-use Title;
 
 class ProcessChecklistItems implements
 	ParserPreSaveTransformCompleteHook,

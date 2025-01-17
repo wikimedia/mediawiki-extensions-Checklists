@@ -10,12 +10,12 @@ use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\ParserAfterTidyHook;
 use MediaWiki\Hook\ParserBeforeInternalParseHook;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Title\Title;
 use Message;
 use OOUI\HtmlSnippet;
 use OOUI\MessageWidget;
 use OutputPage;
 use Parser;
-use Title;
 
 class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook, BeforePageDisplayHook {
 
