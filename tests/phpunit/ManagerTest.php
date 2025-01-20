@@ -11,6 +11,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\PageUpdaterFactory;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use PHPUnit\Framework\TestCase;
 
 class ManagerTest extends TestCase {
@@ -26,7 +27,7 @@ class ManagerTest extends TestCase {
 		$revisionMock->method( 'getPage' )->willReturn(
 			$this->createMock( PageIdentity::class )
 		);
-		$manager->persistsOnSave( $revisionMock, $this->createMock( \User::class ) );
+		$manager->persistsOnSave( $revisionMock, $this->createMock( User::class ) );
 	}
 
 	/**
@@ -127,7 +128,7 @@ class ManagerTest extends TestCase {
 			$this->createMock( Title::class ),
 			new \DateTime(),
 			new \DateTime(),
-			$this->createMock( \User::class )
+			$this->createMock( User::class )
 		);
 	}
 }

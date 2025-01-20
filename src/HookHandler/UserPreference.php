@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Checklists\HookHandler;
 
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\User\User;
 
 class UserPreference implements GetPreferencesHook {
 

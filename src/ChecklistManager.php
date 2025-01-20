@@ -8,8 +8,8 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdaterFactory;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use User;
 use WikitextContent;
 
 class ChecklistManager {
