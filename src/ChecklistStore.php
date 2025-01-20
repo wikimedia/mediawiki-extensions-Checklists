@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\Checklists;
 
 use DateTime;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\User\User;
 use MediaWiki\User\UserFactory;
 use stdClass;
 use TitleFactory;
-use User;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class ChecklistStore {
