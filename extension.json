@@ -8,7 +8,7 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:Checklist",
 	"descriptionmsg": "checklists-desc",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"Checklists": "i18n"
