@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Checklists\Rest;
 
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Rest\SimpleHandler;
+use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -15,15 +16,15 @@ class ListChecklists extends SimpleHandler {
 	/** @var UserFactory */
 	private $userFactory;
 
-	/** @var \TitleFactory */
+	/** @var TitleFactory */
 	private $titleFactory;
 
 	/**
 	 * @param ChecklistManager $manager
-	 * @param \TitleFactory $titleFactory
+	 * @param TitleFactory $titleFactory
 	 * @param UserFactory $userFactory
 	 */
-	public function __construct( ChecklistManager $manager, \TitleFactory $titleFactory, UserFactory $userFactory ) {
+	public function __construct( ChecklistManager $manager, TitleFactory $titleFactory, UserFactory $userFactory ) {
 		$this->manager = $manager;
 		$this->titleFactory = $titleFactory;
 		$this->userFactory = $userFactory;
