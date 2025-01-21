@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Checklists\Rest;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
@@ -32,7 +33,7 @@ class UpdateStatus extends SimpleHandler {
 	 * @throws MWException
 	 */
 	public function execute() {
-		$user = \RequestContext::getMain()->getUser();
+		$user = RequestContext::getMain()->getUser();
 		$params = $this->getValidatedParams();
 		$body = $this->getValidatedBody();
 		$store = $this->manager->getStore();
