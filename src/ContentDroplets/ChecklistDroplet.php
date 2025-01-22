@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Checklists\ContentDroplets;
 
 use MediaWiki\Extension\ContentDroplets\Droplet\GenericDroplet;
-use Message;
+use MediaWiki\Message\Message;
 
 class ChecklistDroplet extends GenericDroplet {
 
