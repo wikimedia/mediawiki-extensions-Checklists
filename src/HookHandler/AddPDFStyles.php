@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\Checklists\HookHandler;
 
 use BlueSpice\UEModulePDF\Hook\BSUEModulePDFBeforeAddingStyleBlocksHook;
-use Config;
+use MediaWiki\Config\Config;
 
 class AddPDFStyles implements BSUEModulePDFBeforeAddingStyleBlocksHook {
 
