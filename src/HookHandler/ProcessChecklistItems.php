@@ -6,6 +6,7 @@ use ManualLogEntry;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Hook\ParserPreSaveTransformCompleteHook;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Html\Html;
 use MediaWiki\Page\Hook\ArticleUndeleteHook;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\Hook\PageDeleteHook;
@@ -72,7 +73,7 @@ class ProcessChecklistItems implements
 	 */
 	private function getItemHtml( array $item ): string {
 		if ( $item['type'] === 'check' ) {
-			return \Html::element(
+			return Html::element(
 				'p',
 				[
 					'data-value' => $item['value'] ? '1' : '0',
