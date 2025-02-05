@@ -1,10 +1,15 @@
+.checklist {
+	margin: 0;
+	padding: 0;
+}
+
 .checklist-li {
 	list-style: none;
 	position: relative;
 	margin-left: 0;
 }
 
-/* stylelint-disable function-url-quotes */
+/* stylelint-disable function-url-quotes, @stylistic/function-parentheses-space-inside */
 .checklist-li::before {
 	content: '';
 	vertical-align: middle;
@@ -12,7 +17,7 @@
 	width: 0.5cm;
 	height: 0.5cm;
 	/* @embed */
-	background-image: url( './images/unchecked.png' );
+	background-image: url('../images/unchecked.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 0.5cm 0.5cm;
@@ -20,9 +25,9 @@
 
 .checklist-li.checklist-checked::before {
 	/* @embed */
-	background-image: url( './images/checked.png' );
+	background-image: url('../images/checked.png');
 }
-/* stylelint-enable function-url-quotes */
+/* stylelint-enable function-url-quotes, @stylistic/function-parentheses-space-inside */
 
 .checklist-li.checklist-checked {
 	text-decoration: line-through;

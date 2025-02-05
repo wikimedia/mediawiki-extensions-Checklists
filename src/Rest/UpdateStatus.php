@@ -42,6 +42,7 @@ class UpdateStatus extends SimpleHandler {
 			return $this->getResponseFactory()->createJson( [ 'error' => 'Checklist item not found' ], 404 );
 		}
 		$item = $items[0];
+
 		$rev = $this->manager->setStatusForChecklistItem( $item, $body[ 'value' ], $user );
 		if ( !$rev ) {
 			return $this->getResponseFactory()->createJson( [ 'error' => 'Failed to update checklist' ], 500 );

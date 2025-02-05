@@ -50,13 +50,17 @@ class ChecklistParser {
 	 */
 	public function setItemValue( string $text, string $id, string $value, PageIdentity $page ): string {
 		$items = $this->parse( $text, $page, true );
+
 		foreach ( $items as $item ) {
 			if ( $item['id'] === $id ) {
 				$setter = $this->setters[$item['type']];
 				$modified = $this->$setter( $item, $value );
-				$text = str_replace( $item['line'], $modified, $text );
+				$pattern = preg_quote( $item['line'] );
+				$pattern = "/$pattern\n/s";
+				$text = preg_replace( $pattern, $modified . "\n", $text );
 			}
 		}
+
 		return $text;
 	}
 
