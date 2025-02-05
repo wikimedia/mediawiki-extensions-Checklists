@@ -30,7 +30,7 @@
 					return;
 				}
 
-				if ( e.type === 'keypress' && e.keyCode != 13 ) {
+				if ( e.type === 'keypress' && e.keyCode !== 13 ) {
 					return;
 				}
 

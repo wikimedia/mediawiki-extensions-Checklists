@@ -3,6 +3,8 @@
 namespace MediaWiki\Extension\Checklists;
 
 use DateTime;
+use MediaWiki\CommentStore\CommentStoreComment;
+use MediaWiki\Content\WikitextContent;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
@@ -10,7 +12,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdaterFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use WikitextContent;
 
 class ChecklistManager {
 	/** @var ChecklistParser */
@@ -132,7 +133,7 @@ class ChecklistManager {
 		}
 		return $this->pageUpdaterFactory->newPageUpdater( $page, $user )
 			->setContent( SlotRecord::MAIN, new WikitextContent( $newText ) )
-			->saveRevision( \CommentStoreComment::newUnsavedComment( 'Checklist item status changed' ) );
+			->saveRevision( CommentStoreComment::newUnsavedComment( 'Checklist item status changed' ) );
 	}
 
 	/**

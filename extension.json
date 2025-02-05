@@ -28,6 +28,19 @@
 					"class": "\\MediaWiki\\Extension\\Checklists\\ContentDroplets\\ChecklistDroplet"
 				}
 			}
+		},
+		"PDFCreator": {
+			"StylesheetsProvider": {
+				"ChecklistStyles": {
+					"class": "MediaWiki\\Extension\\Checklists\\Integration\\PDFCreator\\StylesheetsProvider\\CSStyles"
+				}
+			},
+			"PreProcessors": {
+				"ChecklistImage": {
+					"class": "MediaWiki\\Extension\\Checklists\\Integration\\PDFCreator\\PreProcessors\\ChecklistImage",
+					"services": [ "MainConfig" ]
+				}
+			}
 		}
 	},
 	"AutoloadNamespaces": {
@@ -98,9 +111,7 @@
 		"ArticleUndelete": "processChecklistItems",
 		"PageDelete": "processChecklistItems",
 		"GetPreferences": "userpreference",
-		"ParserAfterTidy": "modifyOutput",
-		"BeforePageDisplay": "modifyOutput",
-		"BSUEModulePDFBeforeAddingStyleBlocks": "pdf"
+		"ParserAfterTidy": "modifyOutput"
 	},
 	"HookHandlers": {
 		"processChecklistItems": {
@@ -118,10 +129,6 @@
 		"modifyOutput": {
 			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\ModifyOutput",
 			"services": [ "ChecklistManager" ]
-		},
-		"pdf": {
-			"class": "\\MediaWiki\\Extension\\Checklists\\HookHandler\\AddPDFStyles",
-			"services": [ "MainConfig" ]
 		}
 	},
 	"ServiceWiringFiles": [
