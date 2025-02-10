@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\Checklists\Tests;
 
+use MediaWiki\Content\WikitextContent;
 use MediaWiki\Extension\Checklists\ChecklistItem;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Extension\Checklists\ChecklistParser;
@@ -23,7 +24,7 @@ class ManagerTest extends TestCase {
 	public function testPersistOnSave() {
 		$manager = $this->getManager();
 		$revisionMock = $this->createMock( RevisionRecord::class );
-		$revisionMock->method( 'getContent' )->willReturn( new \WikitextContent( '' ) );
+		$revisionMock->method( 'getContent' )->willReturn( new WikitextContent( '' ) );
 		$revisionMock->method( 'getPage' )->willReturn(
 			$this->createMock( PageIdentity::class )
 		);
