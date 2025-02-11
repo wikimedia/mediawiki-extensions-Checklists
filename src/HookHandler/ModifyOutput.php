@@ -53,7 +53,9 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 			$text, $this->titleFromPageReference( $parser->getPage() ), true
 		);
 
-		if ( !empty( $this->items ) && !$this->isNamespaceSuitable( $this->titleFromPageReference( $parser->getPage() ) ) ) {
+		if ( !empty( $this->items ) &&
+			!$this->isNamespaceSuitable( $this->titleFromPageReference( $parser->getPage() ) )
+		) {
 			$this->showUnsupportedPageNotice( $parser, $text );
 			return;
 		}
