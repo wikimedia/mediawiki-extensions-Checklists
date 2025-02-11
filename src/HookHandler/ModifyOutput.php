@@ -18,7 +18,7 @@ use OOUI\MessageWidget;
 
 class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook {
 
-	private const UNSUPPORTED_NAMESPACES = [ NS_MEDIAWIKI, NS_FILE, NS_TEMPLATE ];
+	private const UNSUPPORTED_NAMESPACES = [ NS_FILE, NS_TEMPLATE ];
 
 	/** @var array */
 	private $items = [];
@@ -48,14 +48,14 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 			return;
 		}
 
-		if ( !$this->isNamespaceSuitable( $this->titleFromPageReference( $parser->getPage() ) ) ) {
-			$this->showUnsupportedPageNotice( $parser, $text );
-			return;
-		}
-
 		$this->items = $this->manager->getParser()->parse(
 			$text, $this->titleFromPageReference( $parser->getPage() ), true
 		);
+
+		if ( !empty( $this->items ) && !$this->isNamespaceSuitable( $this->titleFromPageReference( $parser->getPage() ) ) ) {
+			$this->showUnsupportedPageNotice( $parser, $text );
+			return;
+		}
 	}
 
 	/**
