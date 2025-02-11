@@ -108,7 +108,7 @@
 		"LoadExtensionSchemaUpdates": "runDatabaseUpdates",
 		"ParserBeforeInternalParse": "modifyOutput",
 		"PageDeleteComplete": "processChecklistItems",
-		"ArticleUndelete": "processChecklistItems",
+		"PageUndeleteComplete": "processChecklistItems",
 		"PageDelete": "processChecklistItems",
 		"GetPreferences": "userpreference",
 		"ParserAfterTidy": "modifyOutput"
