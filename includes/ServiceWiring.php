@@ -15,7 +15,8 @@ return [
 				$services->getTitleFactory()
 			),
 			$services->getRevisionStore(),
-			$services->getPageUpdaterFactory()
+			$services->getPageUpdaterFactory(),
+			$services->getPermissionManager()
 		);
 	},
 ];

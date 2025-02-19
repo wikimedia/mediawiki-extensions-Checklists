@@ -90,7 +90,8 @@
 				"checklists-checkbox-dlg-title",
 				"checklists-checkbox-dlg-action-done",
 				"checklists-checkbox-dlg-action-cancel",
-				"checklists-checkbox-dlg-hide-revision-label"
+				"checklists-checkbox-dlg-hide-revision-label",
+				"checklists-error-set-status"
 			],
 			"dependencies": [
 				"oojs",
