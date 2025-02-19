@@ -56,7 +56,7 @@ class ChecklistParser {
 				$setter = $this->setters[$item['type']];
 				$modified = $this->$setter( $item, $value );
 				$pattern = preg_quote( $item['line'] );
-				$pattern = "/$pattern\n/s";
+				$pattern = "/$pattern(\n|$)/s";
 				$text = preg_replace( $pattern, $modified . "\n", $text );
 			}
 		}
