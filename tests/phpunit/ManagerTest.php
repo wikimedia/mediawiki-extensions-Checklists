@@ -8,6 +8,7 @@ use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Extension\Checklists\ChecklistParser;
 use MediaWiki\Extension\Checklists\ChecklistStore;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Storage\PageUpdaterFactory;
@@ -41,7 +42,8 @@ class ManagerTest extends TestCase {
 			$this->createMock( ChecklistParser::class ),
 			$this->createMock( ChecklistStore::class ),
 			$this->createMock( RevisionStore::class ),
-			$this->createMock( PageUpdaterFactory::class )
+			$this->createMock( PageUpdaterFactory::class ),
+			$this->createMock( PermissionManager::class )
 		);
 		$this->assertInstanceOf( ChecklistParser::class, $manager->getParser() );
 		$this->assertInstanceOf( ChecklistStore::class, $manager->getStore() );
@@ -109,10 +111,13 @@ class ManagerTest extends TestCase {
 				$this->assertTrue( $curChecker( $item ) );
 				return false;
 			} );
+		$pmMock = $this->createMock( PermissionManager::class );
+		$pmMock->method( 'userCan' )->willReturn( true );
 		return new ChecklistManager(
 			$parserMock, $storeMock,
 			$this->createMock( RevisionStore::class ),
-			$this->createMock( PageUpdaterFactory::class )
+			$this->createMock( PageUpdaterFactory::class ),
+			$pmMock
 		);
 	}
 

@@ -11,6 +11,8 @@
 			success: function ( data ) {
 				window.location.reload();
 			}
+		} ).fail( function() {
+			OO.ui.alert( mw.msg( 'checklists-error-set-status' ) );
 		} );
 	}
 

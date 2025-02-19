@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Label for dialog action \"Cancel\"",
 	"checklists-checkbox-dlg-hide-revision-label": "Label for checkbox to set preference that dialog with reminder for new revision should not be shown anymore",
 	"checklists-droplet-checklist-title": "Label for card which describes insertion of a checklist",
-	"checklists-droplet-checklist-description": "Label for card which describes insertion of a checklist"
+	"checklists-droplet-checklist-description": "Label for card which describes insertion of a checklist",
+	"checklists-error-set-status": "Error message when status of checklist could not be set"
 }

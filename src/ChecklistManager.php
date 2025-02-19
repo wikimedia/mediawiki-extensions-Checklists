@@ -5,13 +5,16 @@ namespace MediaWiki\Extension\Checklists;
 use DateTime;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\WikitextContent;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Page\PageIdentity;
+use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdaterFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use PermissionsError;
 
 class ChecklistManager {
 	/** @var ChecklistParser */
@@ -31,10 +34,12 @@ class ChecklistManager {
 	 * @param ChecklistStore $store
 	 * @param RevisionStore $revisionStore
 	 * @param PageUpdaterFactory $pageUpdaterFactory
+	 * @param PermissionManager $permissionManager
 	 */
 	public function __construct(
 		ChecklistParser $parser, ChecklistStore $store,
-		RevisionStore $revisionStore, PageUpdaterFactory $pageUpdaterFactory
+		RevisionStore $revisionStore, PageUpdaterFactory $pageUpdaterFactory,
+		private readonly PermissionManager $permissionManager
 	) {
 		$this->parser = $parser;
 		$this->store = $store;
@@ -117,6 +122,7 @@ class ChecklistManager {
 	 */
 	public function setStatusForChecklistItem( ChecklistItem $item, string $value, User $user ): ?RevisionRecord {
 		$page = $item->getPage();
+		$this->assertCanUpdate( $user, $page );
 		$revisionRecord = $this->revisionStore->getRevisionByTitle( $page );
 		if ( !$revisionRecord ) {
 			return null;
@@ -153,5 +159,19 @@ class ChecklistManager {
 			new DateTime( 'now' ),
 			$author
 		);
+	}
+
+	/**
+	 * @param User $user
+	 * @param PageIdentity $page
+	 * @return void
+	 * @throws PermissionsError
+	 */
+	private function assertCanUpdate( User $user, PageIdentity $page ) {
+		RequestContext::getMain()->setActionName( 'edit' );
+		$status = $this->permissionManager->getPermissionStatus( 'edit', $user, $page );
+		if ( !$status->isOK() ) {
+			throw new PermissionsError( 'edit', $status );
+		}
 	}
 }
