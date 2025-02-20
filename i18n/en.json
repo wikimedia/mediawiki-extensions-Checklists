@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Cancel",
 	"checklists-checkbox-dlg-hide-revision-label": "Do not show this message again",
 	"checklists-droplet-checklist-title": "Tasklist",
-	"checklists-droplet-checklist-description": "Inserts a task list"
+	"checklists-droplet-checklist-description": "Inserts a task list",
+	"checklists-error-set-status": "Failed to set status"
 }
