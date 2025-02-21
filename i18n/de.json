@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Abbrechen",
 	"checklists-checkbox-dlg-hide-revision-label": "Diese Nachricht nicht mehr anzeigen",
 	"checklists-droplet-checklist-title": "Aufgabenliste",
-	"checklists-droplet-checklist-description": "Fügt eine Aufgabenliste ein"
+	"checklists-droplet-checklist-description": "Fügt eine Aufgabenliste ein",
+	"checklists-error-set-status": "Status kann nicht gesetzt werden"
 }
