@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "ביטול",
 	"checklists-checkbox-dlg-hide-revision-label": "לא להציג את ההודעה הזאת שוב",
 	"checklists-droplet-checklist-title": "רשימת מטלות",
-	"checklists-droplet-checklist-description": "הוספת רשימת מטלות"
+	"checklists-droplet-checklist-description": "הוספת רשימת מטלות",
+	"checklists-error-set-status": "הגדרת המצב נכשלה"
 }

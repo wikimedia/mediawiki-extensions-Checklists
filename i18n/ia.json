@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Cancellar",
 	"checklists-checkbox-dlg-hide-revision-label": "Non monstrar iste message de novo",
 	"checklists-droplet-checklist-title": "Listas de cargas",
-	"checklists-droplet-checklist-description": "Insere un lista de cargas"
+	"checklists-droplet-checklist-description": "Insere un lista de cargas",
+	"checklists-error-set-status": "Fallimento de definir le stato"
 }
