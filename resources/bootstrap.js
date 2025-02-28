@@ -5,5 +5,4 @@ window.checklists = {
 		tools: {}
 	},
 	ui: {}
-
 };
