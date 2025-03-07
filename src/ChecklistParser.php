@@ -47,6 +47,7 @@ class ChecklistParser {
 	 * @param PageIdentity $page
 	 *
 	 * @return string
+	 * @throws Exception
 	 */
 	public function setItemValue( string $text, string $id, string $value, PageIdentity $page ): string {
 		$items = $this->parse( $text, $page, true );
@@ -55,9 +56,14 @@ class ChecklistParser {
 			if ( $item['id'] === $id ) {
 				$setter = $this->setters[$item['type']];
 				$modified = $this->$setter( $item, $value );
-				$pattern = preg_quote( $item['line'] );
+				$pattern = preg_quote( $item['line'], '/' );
 				$pattern = "/$pattern(\n|$)/s";
-				$text = preg_replace( $pattern, $modified . "\n", $text );
+				$replaced = preg_replace( $pattern, $modified . "\n", $text );
+				if ( $replaced !== null ) {
+					$text = $replaced;
+				} else {
+					throw new Exception( 'Failed to replace item' );
+				}
 			}
 		}
 
