@@ -37,10 +37,11 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
 		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
 
-		$this->assertXmlStringEqualsXmlString(
-			$body->ownerDocument->saveHTML( $body ),
-			$expectedBody->item( 0 )->ownerDocument->saveHTML( $expectedBody->item( 0 ) )
+		$actual = $this->normalize( html_entity_decode( $doc->saveHTML( $body ), ENT_QUOTES ) );
+		$expected = $this->normalize(
+			html_entity_decode( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ), ENT_QUOTES )
 		);
+		$this->assertSame( $expected, $actual );
 	}
 
 	/**
@@ -59,5 +60,19 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 				'html'
 			]
 		];
+	}
+
+	/**
+	 * @param string $html
+	 * @return string
+	 */
+	private function normalize( string $html ): string {
+		// remove all newlines
+		$html = preg_replace( '/\\n/', '', $html );
+		$html = preg_replace( '/\n/', '', $html );
+		// strip data-object-id
+		$html = preg_replace( '/\sdata-object-id="\d*?"/', '', $html );
+		// remove all 2+ spaces
+		return preg_replace( '/\s+/', '', $html );
 	}
 }

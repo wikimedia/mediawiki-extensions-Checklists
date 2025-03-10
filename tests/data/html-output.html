@@ -4,14 +4,37 @@
 		<title>Checklist/Test</title>
 	</head>
 	<body data-object-id="15">
-		<p data-object-id="1">Test</p>\n
-		<ul class="checklist"><li class="checklist-li " >ABC</li><li class="checklist-li checklist-checked">DEF Test [] Test2</li></ul>\n\n
-		<p data-object-id="3">Lorem ipsum</p>\n
-		<ul class="checklist"><li class="checklist-li " >Test <a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="1">Max Mäöx</a> do this task</li></ul>\n\n
-		<ul class="checklist"><li class="checklist-li " >Task Description <a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="3">WikiSysop</a> until <span class="datetime" typeof="mw:Extension/datetime" about="#mwt2" data-object-id="0">23. Juni 2023</span></li><li class="checklist-li ">Second Task for <a  href="./Benutzer:Testuser" title="Benutzer:Testuser" data-object-id="5">Testuser</a></li><li class="checklist-li " >Task with text description without any other children in task</li><li class="checklist-li " >Task with user <a  href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="6">WikiSysop</a> and page link <a  href="./Example" title="Example" data-object-id="7">Example Page</a></li></ul>\n\n
-		<ul class="checklist"><li class="checklist-li " ><a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="3">WikiSysop</a>Do this with user mentioned at first</li></ul>
+		<p data-object-id="1">Test</p>
+		<ul class="checklist">
+            <li class="checklist-li " role="checkbox" aria-checked="false">ABC</li>
+            <li class="checklist-li checklist-checked" role="checkbox" checked aria-checked="true">DEF Test [] Test2</li>
+        </ul>
+		<p data-object-id="3">Lorem ipsum</p>
+		<ul class="checklist">
+            <li class="checklist-li " role="checkbox" aria-checked="false" >
+                Test <a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="1">Max Mäöx</a> do this task
+            </li>
+        </ul>
+		<ul class="checklist">
+            <li class="checklist-li " role="checkbox" aria-checked="false"  >
+                Task Description <a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="3">WikiSysop</a> until <span class="datetime" typeof="mw:Extension/datetime" about="#mwt2" data-object-id="0">23. Juni 2023</span>
+            </li>
+            <li class="checklist-li " role="checkbox" aria-checked="false">
+                Second Task for <a  href="./Benutzer:Testuser" title="Benutzer:Testuser" data-object-id="5">Testuser</a>
+            </li>
+            <li class="checklist-li " role="checkbox" aria-checked="false" >
+                Task with text description without any other children in task</li>
+            <li class="checklist-li " role="checkbox" aria-checked="false">
+                Task with user <a  href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="6">WikiSysop</a> and page link <a  href="./Example" title="Example" data-object-id="7">Example Page</a>
+            </li>
+        </ul>
+		<ul class="checklist">
+            <li class="checklist-li " role="checkbox" aria-checked="false">
+                <a href="./Benutzer:WikiSysop" title="Benutzer:WikiSysop" data-object-id="3">WikiSysop</a>Do this with user mentioned at first
+            </li>
+        </ul>
 		<p data-object-id="5">Text which should not be included in checklist <a href="./Test" title="Test" data-object-id="1">Test</a></p>
-		<ul class="checklist"><li class="checklist-li " >Task for checklist this</li></ul>
-		<ul class="checklist"><li class="checklist-li " >Test &amp; Ampersand</li></ul>
+		<ul class="checklist"><li class="checklist-li " role="checkbox" aria-checked="false">Task for checklist this</li></ul>
+		<ul class="checklist"><li class="checklist-li " role="checkbox" aria-checked="false">Test &amp; Ampersand</li></ul>
 	</body>
 </html>

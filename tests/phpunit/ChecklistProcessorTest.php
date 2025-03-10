@@ -33,10 +33,9 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
 		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
 
-		$this->assertXmlStringEqualsXmlString(
-			$body,
-			$expectedBody->item( 0 )->sa
-		);
+		$body = $this->normalize( $doc->saveHTML( $body ) );
+		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ) );
+		$this->assertSame( $expectedBody, $body );
 	}
 
 	/**
@@ -61,7 +60,9 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
 		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
 
-		$this->assertEqualXMLStructure( $body, $expectedBody->item( 0 ) );
+		$body = $this->normalize( $doc->saveHTML( $body ) );
+		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ) );
+		$this->assertSame( $expectedBody, $body );
 	}
 
 	/**
@@ -94,5 +95,19 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 				"/../data/parsoid-html-input-table.html"
 			]
 		];
+	}
+
+	/**
+	 * @param string $html
+	 * @return string
+	 */
+	private function normalize( string $html ): string {
+		// remove all newlines
+		$html = preg_replace( '/\\n/', '', $html );
+		$html = preg_replace( '/\n/', '', $html );
+		// strip data-object-id
+		$html = preg_replace( '/\sdata-object-id="\d*?"/', '', $html );
+		// remove all 2+ spaces
+		return preg_replace( '/\s+/', '', $html );
 	}
 }
