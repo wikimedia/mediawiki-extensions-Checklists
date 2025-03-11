@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Annuleren",
 	"checklists-checkbox-dlg-hide-revision-label": "Dit bericht niet meer weergeven",
 	"checklists-droplet-checklist-title": "Takenlijst",
-	"checklists-droplet-checklist-description": "Voegt een takenlijst in"
+	"checklists-droplet-checklist-description": "Voegt een takenlijst in",
+	"checklists-error-set-status": "Status instellen mislukt"
 }
