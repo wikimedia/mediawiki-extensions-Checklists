@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BlueCamille",
+			"JLTRY",
 			"Mahabarata",
 			"Wnagxsi"
 		]
@@ -16,5 +17,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Annuler",
 	"checklists-checkbox-dlg-hide-revision-label": "Ne plus afficher ce message",
 	"checklists-droplet-checklist-title": "Liste de tâches",
-	"checklists-droplet-checklist-description": "Insère une liste de tâches"
+	"checklists-droplet-checklist-description": "Insère une liste de tâches",
+	"checklists-error-set-status": "Impossible de définir le statut"
 }
