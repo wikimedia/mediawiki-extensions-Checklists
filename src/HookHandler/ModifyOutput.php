@@ -39,6 +39,10 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	 * @inheritDoc
 	 */
 	public function onParserBeforeInternalParse( $parser, &$text, $stripState ) {
+		if ( !empty( $this->items ) ) {
+			// Text containing checklists already processed
+			return;
+		}
 		$title = $this->titleFromPageReference( $parser->getPage() );
 
 		if ( $title === null ) {
