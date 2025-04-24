@@ -15,5 +15,6 @@
 	"checklists-ve-tool-title": "قائمة المهام",
 	"checklists-checkbox-dlg-title": "مربع الاختيار",
 	"checklists-droplet-checklist-title": "قائمة المهام",
-	"checklists-droplet-checklist-description": "إدراج قائمة المهام"
+	"checklists-droplet-checklist-description": "إدراج قائمة المهام",
+	"checklists-error-set-status": "فشل في ضبط الحالة"
 }

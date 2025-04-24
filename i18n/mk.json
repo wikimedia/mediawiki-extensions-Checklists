@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Откажи",
 	"checklists-checkbox-dlg-hide-revision-label": "Повеќе не ја покажувај поракава",
 	"checklists-droplet-checklist-title": "Список на задачи",
-	"checklists-droplet-checklist-description": "Вметнува список на задачи"
+	"checklists-droplet-checklist-description": "Вметнува список на задачи",
+	"checklists-error-set-status": "Не успеав да го зададам статусот"
 }

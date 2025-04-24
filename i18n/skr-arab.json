@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saraiki"
+			"Saraiki",
+			"Umar Shahid"
 		]
 	},
 	"checklists-checkbox-dlg-action-done": "تھی ڳیا",
-	"checklists-checkbox-dlg-action-cancel": "منسوخ"
+	"checklists-checkbox-dlg-action-cancel": "منسوخ",
+	"checklists-error-set-status": "اسٹیٹس سیٹ کرݨ وچ ناکام"
 }

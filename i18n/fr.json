@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BlueCamille",
+			"JLTRY",
 			"Mahabarata",
 			"Wnagxsi"
 		]
@@ -16,5 +17,6 @@
 	"checklists": "Listes de contrôle",
 	"checklists-desc": "Fournit des listes de contrôle dans VisualEditor",
 	"checklists-confirm-change-status": "Etes-vous sûr de vouloir modifier le statut de cet élément de la liste de contrôle ? Cela créera une nouvelle révision de la page",
-	"checklists-not-allowed": "Cette page n'est pas adaptée aux listes de contrôle. Les causes courantes sont que la page n'a pas de modèle de contenu <code>wikitext</code> ou que la page ne se trouve pas dans un espace de noms pris en charge"
+	"checklists-not-allowed": "Cette page n'est pas adaptée aux listes de contrôle. Les causes courantes sont que la page n'a pas de modèle de contenu <code>wikitext</code> ou que la page ne se trouve pas dans un espace de noms pris en charge",
+	"checklists-error-set-status": "Impossible de définir le statut"
 }
