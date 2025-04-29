@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Anulovati",
 	"checklists-checkbox-dlg-hide-revision-label": "Veče ne pokazyvati tuto soobčenje",
 	"checklists-droplet-checklist-title": "Spisok zadanij",
-	"checklists-droplet-checklist-description": "Vstavjaje spisok zadanij"
+	"checklists-droplet-checklist-description": "Vstavjaje spisok zadanij",
+	"checklists-error-set-status": "Nastavjenje statusa neuspěšno"
 }
