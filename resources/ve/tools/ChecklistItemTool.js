@@ -11,7 +11,7 @@ checklists.ve.tools.ChecklistItemTool.static.title = mw.message( 'checklists-ve-
 checklists.ve.tools.ChecklistItemTool.static.commandName = 'checklists';
 
 checklists.ve.tools.ChecklistItemTool.prototype.onUpdateState = function ( fragment ) {
-	var isMatching;
+	let isMatching;
 	// Parent method
 	checklists.ve.tools.ChecklistItemTool.super.prototype.onUpdateState.apply( this, arguments );
 
