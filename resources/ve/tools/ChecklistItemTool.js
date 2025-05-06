@@ -11,11 +11,10 @@ checklists.ve.tools.ChecklistItemTool.static.title = mw.message( 'checklists-ve-
 checklists.ve.tools.ChecklistItemTool.static.commandName = 'checklists';
 
 checklists.ve.tools.ChecklistItemTool.prototype.onUpdateState = function ( fragment ) {
-	let isMatching;
 	// Parent method
 	checklists.ve.tools.ChecklistItemTool.super.prototype.onUpdateState.apply( this, arguments );
 
-	isMatching = fragment.hasMatchingAncestor( 'checklists' );
+	const isMatching = fragment.hasMatchingAncestor( 'checklists' );
 	this.setActive( isMatching );
 };
 
