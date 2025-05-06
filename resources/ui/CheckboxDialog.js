@@ -24,13 +24,13 @@ checklists.ui.CheckboxDialog.prototype.initialize = function () {
 	checklists.ui.CheckboxDialog.super.prototype.initialize.apply( this, arguments );
 
 	this.content = new OO.ui.PanelLayout( { padded: true, expanded: false } );
-	var label = new OO.ui.LabelWidget( {
+	const label = new OO.ui.LabelWidget( {
 		label: mw.msg( 'checklists-confirm-change-status' )
 	} );
 	this.content.$element.append( label.$element );
 
 	this.checkbox = new OO.ui.CheckboxInputWidget();
-	var field = new OO.ui.FieldLayout( this.checkbox, {
+	const field = new OO.ui.FieldLayout( this.checkbox, {
 		label: mw.msg( 'checklists-checkbox-dlg-hide-revision-label' ),
 		align: 'inline'
 	} );
@@ -40,7 +40,7 @@ checklists.ui.CheckboxDialog.prototype.initialize = function () {
 
 checklists.ui.CheckboxDialog.prototype.getActionProcess = function ( action ) {
 	if ( action ) {
-		var setPref = this.setUserPreference();
+		const setPref = this.setUserPreference();
 		setPref.next( this.onActionDone, this );
 		return setPref;
 	}
@@ -48,17 +48,17 @@ checklists.ui.CheckboxDialog.prototype.getActionProcess = function ( action ) {
 };
 
 checklists.ui.CheckboxDialog.prototype.onActionDone = function ( action ) {
-	var args = [ 'actioncompleted' ];
+	const args = [ 'actioncompleted' ];
 	this.emit.apply( this, args );
 	this.close( { action: action } );
 };
 
 checklists.ui.CheckboxDialog.prototype.setUserPreference = function () {
-	var dfd = new $.Deferred();
-	var checked = this.checkbox.isSelected();
+	const dfd = new $.Deferred();
+	const checked = this.checkbox.isSelected();
 	if ( checked ) {
 		if ( !mw.user.isAnon() ) {
-			mw.loader.using( 'mediawiki.api' ).done( function () {
+			mw.loader.using( 'mediawiki.api' ).done( () => {
 				mw.user.options.set( 'checklists-hide-revision-dlg', '1' );
 				new mw.Api().saveOption( 'checklists-hide-revision-dlg', '1' );
 				dfd.resolve();
