@@ -50,7 +50,7 @@ checklists.ve.dm.CheckListNode.static.toDataElement = function ( domElements ) {
 };
 
 checklists.ve.dm.CheckListNode.static.toDomElements = function ( dataElement, doc ) {
-	var list = doc.createElement( 'ul' );
+	const list = doc.createElement( 'ul' );
 	list.setAttribute( 'rel', 'mw:checklist' );
 	list.setAttribute( 'class', 'checklist' );
 	return [ list ];

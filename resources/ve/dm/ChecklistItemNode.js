@@ -18,7 +18,7 @@ checklists.ve.dm.ChecklistItemNode.static.matchTagNames = [ 'li' ];
 checklists.ve.dm.ChecklistItemNode.static.matchRdfaTypes = [ 'mw:checklist' ];
 
 checklists.ve.dm.ChecklistItemNode.static.toDataElement = function ( domElements ) {
-	var checked = false;
+	let checked = false;
 	if ( domElements[ 0 ].hasAttribute( 'checked' ) &&
 		domElements[ 0 ].getAttribute( 'checked' ) === 'checked' ) {
 		checked = 'checked';
@@ -27,7 +27,7 @@ checklists.ve.dm.ChecklistItemNode.static.toDataElement = function ( domElements
 };
 
 checklists.ve.dm.ChecklistItemNode.static.toDomElements = function ( dataElement, doc ) {
-	var listItem = doc.createElement( 'li' );
+	const listItem = doc.createElement( 'li' );
 	listItem.setAttribute( 'rel', 'mw:checklist' );
 	listItem.setAttribute( 'class', 'checklist-li' );
 	if ( dataElement.attributes.checked === true || dataElement.attributes.checked === 'checked' ) {
@@ -39,7 +39,7 @@ checklists.ve.dm.ChecklistItemNode.static.toDomElements = function ( dataElement
 };
 
 checklists.ve.dm.ChecklistItemNode.static.cloneElement = function () {
-	var clone = checklists.ve.dm.ChecklistItemNode.super.static.cloneElement.apply(
+	const clone = checklists.ve.dm.ChecklistItemNode.super.static.cloneElement.apply(
 		this, arguments );
 	clone.attributes.checked = false;
 	return clone;

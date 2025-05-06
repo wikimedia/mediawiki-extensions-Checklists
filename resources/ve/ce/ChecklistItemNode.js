@@ -25,9 +25,9 @@ checklists.ve.ce.ChecklistItemNode.static.splitOnEnter = true;
 
 checklists.ve.ce.ChecklistItemNode.prototype.onClick = function ( e ) {
 	if ( e.target === this.$element[ 0 ] ) {
-		var isChecked = this.getModel().getAttribute( 'checked' );
+		const isChecked = this.getModel().getAttribute( 'checked' );
 		this.$element.toggleClass( 'checklist-checked', !isChecked );
-		var fragment =
+		const fragment =
 			this.getRoot().getSurface().getModel().getLinearFragment( this.getOuterRange(), true );
 		fragment.changeAttributes( { checked: !isChecked } );
 	}
@@ -46,7 +46,7 @@ checklists.ve.ce.ChecklistItemNode.prototype.onAttributeChange = function ( key 
 };
 
 checklists.ve.ce.ChecklistItemNode.prototype.updateChecked = function () {
-	var isChecked = this.getModel().getAttribute( 'checked' );
+	const isChecked = this.getModel().getAttribute( 'checked' );
 	this.$element.toggleClass( 'checklist-checked', !!isChecked );
 	if ( isChecked === 'checked' ) {
 		this.getModel().element.attributes.checked = !!isChecked;

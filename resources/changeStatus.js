@@ -11,15 +11,15 @@
 			success: function ( data ) {
 				window.location.reload();
 			}
-		} ).fail( function() {
+		} ).fail( () => {
 			OO.ui.alert( mw.msg( 'checklists-error-set-status' ) );
 		} );
 	}
 
-	$( function () {
+	$( () => {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '.checklist-li' ).each( function () {
-			var $this = $( this );
+			const $this = $( this );
 			if ( mw.user.isAnon() ) {
 				$this.attr( 'disabled', true );
 				$this.addClass( 'checklist-item-disabled' );
@@ -27,7 +27,7 @@
 			}
 			$this.attr( 'tabindex', 0 );
 
-			$this.on( 'click keypress', function ( e ) {
+			$this.on( 'click keypress', ( e ) => {
 				if ( e.offsetX >= 0 ) {
 					return;
 				}
@@ -36,21 +36,21 @@
 					return;
 				}
 
-				var id = $this.data( 'checklist-item-id' );
+				const id = $this.data( 'checklist-item-id' );
 				if ( !id ) {
 					return;
 				}
 
-				var value = $this.data( 'value' ) === 1 ? '' : 'checked';
+				const value = $this.data( 'value' ) === 1 ? '' : 'checked';
 				if ( !mw.user.options.get( 'checklists-hide-revision-dlg' ) ) {
 					require( './bootstrap.js' );
 					require( './ui/CheckboxDialog.js' );
 
-					var windowManager = new OO.ui.WindowManager();
+					const windowManager = new OO.ui.WindowManager();
 					$( document.body ).append( windowManager.$element );
 
-					var dialog = new checklists.ui.CheckboxDialog();
-					dialog.on( 'actioncompleted', function () {
+					const dialog = new checklists.ui.CheckboxDialog();
+					dialog.on( 'actioncompleted', () => {
 						setValue( id, value );
 					} );
 					windowManager.addWindows( [ dialog ] );
