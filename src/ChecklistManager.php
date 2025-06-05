@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Checklists;
 
 use DateTime;
+use Exception;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\WikitextContent;
 use MediaWiki\Context\RequestContext;
@@ -118,7 +119,7 @@ class ChecklistManager {
 	 * @param User $user
 	 *
 	 * @return RevisionRecord|null
-	 * @throws \MWException
+	 * @throws Exception
 	 */
 	public function setStatusForChecklistItem( ChecklistItem $item, string $value, User $user ): ?RevisionRecord {
 		$page = $item->getPage();

@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Checklists\Rest;
 
+use Exception;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
-use MWException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class UpdateStatus extends SimpleHandler {
@@ -30,7 +30,7 @@ class UpdateStatus extends SimpleHandler {
 
 	/**
 	 * @return Response
-	 * @throws MWException
+	 * @throws Exception
 	 */
 	public function execute() {
 		$user = RequestContext::getMain()->getUser();
