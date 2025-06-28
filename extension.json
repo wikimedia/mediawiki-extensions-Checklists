@@ -44,8 +44,10 @@
 		}
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\Checklists\\": "src/",
-		"MediaWiki\\Extension\\Checklists\\Tests\\": "tests/phpunit"
+		"MediaWiki\\Extension\\Checklists\\": "src/"
+	},
+	"TestAutoloadNamespaces": {
+		"MediaWiki\\Extension\\Checklists\\Tests\\": "tests/phpunit/"
 	},
 	"ResourceModules": {
 		"ext.checklists.ve.checkList": {
