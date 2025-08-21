@@ -14,5 +14,6 @@
 	"checklists-checkbox-dlg-action-cancel": "取消",
 	"checklists-checkbox-dlg-hide-revision-label": "不要再顯示此訊息",
 	"checklists-droplet-checklist-title": "任務清單",
-	"checklists-droplet-checklist-description": "插入任務清單"
+	"checklists-droplet-checklist-description": "插入任務清單",
+	"checklists-error-set-status": "設定狀態失敗"
 }
