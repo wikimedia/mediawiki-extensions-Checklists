@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anterdc99"
+			"Anterdc99",
+			"GuoPC"
 		]
 	},
 	"checklists": "检查表",
@@ -14,5 +15,6 @@
 	"checklists-checkbox-dlg-action-cancel": "取消",
 	"checklists-checkbox-dlg-hide-revision-label": "不再显示此消息",
 	"checklists-droplet-checklist-title": "任务列表",
-	"checklists-droplet-checklist-description": "插入任务列表"
+	"checklists-droplet-checklist-description": "插入任务列表",
+	"checklists-error-set-status": "设置状态失败"
 }
