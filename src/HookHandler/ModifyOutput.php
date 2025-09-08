@@ -28,7 +28,6 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	private $manager;
 
 	/**
-	 *
 	 * @param ChecklistManager $manager
 	 */
 	public function __construct( ChecklistManager $manager ) {
@@ -66,7 +65,6 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function onParserAfterTidy( $parser, &$text ) {
@@ -113,7 +111,6 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	}
 
 	/**
-	 *
 	 * @param DOMDocument $document
 	 * @return array
 	 */

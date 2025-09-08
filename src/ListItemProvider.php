@@ -26,7 +26,6 @@ class ListItemProvider implements IListItemProvider {
 	}
 
 	/**
-	 *
 	 * @param string $match
 	 * @return string
 	 */
