@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"checklists": "Listas de comprobación",
+	"checklists-desc": "Proporciona listas de comprobación no editor visual",
+	"checklists-confirm-change-status": "Queres cambiar o estado deste elemento da lista de comprobación? Isto creará unha nova revisión da páxina.",
+	"checklists-not-allowed": "Esta páxina non é axeitada para as listas de comprobación. As causas habituais son que a páxina non ten o modelo de contido <code>wikitext</code> ou que a páxina non está nun espazo de nomes admitido.",
+	"checklists-ve-tool-title": "Lista de tarefas",
+	"checklists-checkbox-dlg-title": "Caixa de verificación",
+	"checklists-checkbox-dlg-action-done": "Feito",
+	"checklists-checkbox-dlg-action-cancel": "Cancelar",
+	"checklists-checkbox-dlg-hide-revision-label": "Non amosar esta mensaxe de novo",
+	"checklists-droplet-checklist-title": "Lista de tarefas",
+	"checklists-droplet-checklist-description": "Insire unha lista de tarefas",
+	"checklists-error-set-status": "Produciuse un erro ao definir o estado"
+}
