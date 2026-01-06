@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Miriam Schlindwein"
+			"Miriam Schlindwein",
+			"Umherirrender"
 		]
 	},
 	"checklists": "Checklists",
-	"checklists-desc": "Description of Checklists for [[Special:Version]]",
+	"checklists-desc": "{{desc|name=Checklists|url=https://www.mediawiki.org/wiki/Extension:Checklist}}",
 	"checklists-confirm-change-status": "Text in confirm dialog for user to be sure that new revision of the page should be created",
 	"checklists-not-allowed": "Text for error if checklist is identified on a not supported page",
 	"checklists-ve-tool-title": "Title for checklists ve tool",
