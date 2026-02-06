@@ -15,7 +15,6 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Title\Title;
 use OOUI\HtmlSnippet;
 use OOUI\MessageWidget;
-use Wikimedia\AtEase\AtEase;
 
 class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook {
 
@@ -72,12 +71,11 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 			return;
 		}
 		$document = new DOMDocument();
-		AtEase::suppressWarnings();
 		$this->sanitizeText( $text );
-		$document->loadHTML(
+		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+		@$document->loadHTML(
 			"<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head><body><div>$text</div></body></html>"
 		);
-		AtEase::restoreWarnings();
 
 		$body = $document->getElementsByTagName( 'body' )->item( 0 );
 		$root = $body->firstChild;
