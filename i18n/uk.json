@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Movses",
 			"Ата"
 		]
 	},
@@ -14,5 +15,6 @@
 	"checklists-checkbox-dlg-action-cancel": "Скасувати",
 	"checklists-checkbox-dlg-hide-revision-label": "Більше не показувати цього повідомлення",
 	"checklists-droplet-checklist-title": "Список завдань",
-	"checklists-droplet-checklist-description": "Вставляє список завдань"
+	"checklists-droplet-checklist-description": "Вставляє список завдань",
+	"checklists-error-set-status": "Не вдалося встановити статус"
 }
