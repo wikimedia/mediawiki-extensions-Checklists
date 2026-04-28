@@ -2,12 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
 	"checklists": "체크리스트",
+	"checklists-desc": "시각편집기에서 체크리스트를 제공합니다",
 	"checklists-confirm-change-status": "이 체크리스트 항목의 상태를 변경하고 싶다는 확신이 있습니까? 이 페이지의 새로운 개정판을 만들게 됩니다.",
+	"checklists-not-allowed": "이 문서는 체크리스트에 적합하지 않습니다. 일반적인 원인은 문서에 <code>wikitext</code> 콘텐츠 모델이 없거나 지원되는 이름공간에 속하지 않는 경우입니다",
 	"checklists-ve-tool-title": "과제 목록",
+	"checklists-checkbox-dlg-title": "체크 상자",
+	"checklists-checkbox-dlg-action-done": "완료",
 	"checklists-checkbox-dlg-action-cancel": "취소",
+	"checklists-checkbox-dlg-hide-revision-label": "이 메시지를 더 이상 보지 않기",
+	"checklists-droplet-checklist-title": "작업 목록",
+	"checklists-droplet-checklist-description": "작업 목록 삽입",
 	"checklists-error-set-status": "상태 설정에 실패했습니다"
 }
