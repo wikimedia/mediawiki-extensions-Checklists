@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cookie4782",
 			"MathXplore"
 		]
 	},
+	"checklists": "チェックリスト",
+	"checklists-desc": "ビジュアルエディターでチェックリストを提供する",
 	"checklists-checkbox-dlg-title": "チェックボックス",
+	"checklists-checkbox-dlg-action-done": "完了",
 	"checklists-checkbox-dlg-action-cancel": "キャンセル"
 }
