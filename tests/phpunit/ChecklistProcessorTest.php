@@ -24,7 +24,8 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$mockApi = $this->createMock( ParsoidExtensionAPI::class );
 
 		$inputHtml = file_get_contents( __DIR__ . $inputPath );
-		$doc = ContentUtils::createAndLoadDocument( $inputHtml );
+		$siteConfig = $this->getServiceContainer()->getParsoidSiteConfig();
+		$doc = ContentUtils::createAndLoadDocument( $inputHtml, [], $siteConfig );
 		$body = DOMCompat::getBody( $doc );
 		$processor = new ChecklistProcessor();
 		$processor->wtPostprocess( $mockApi, $body, [] );
@@ -51,7 +52,8 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$mockApi = $this->createMock( ParsoidExtensionAPI::class );
 
 		$inputHtml = file_get_contents( __DIR__ . $inputPath );
-		$doc = ContentUtils::createAndLoadDocument( $inputHtml );
+		$siteConfig = $this->getServiceContainer()->getParsoidSiteConfig();
+		$doc = ContentUtils::createAndLoadDocument( $inputHtml, [], $siteConfig );
 		$body = DOMCompat::getBody( $doc );
 		$processor = new ChecklistProcessor();
 		$processor->htmlPreprocess( $mockApi, $body );

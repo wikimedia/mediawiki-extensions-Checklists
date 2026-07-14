@@ -24,7 +24,8 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testprocessDOM( string $inputPath, string $outputPath, string $mode ) {
 		$inputHtml = file_get_contents( __DIR__ . $inputPath );
-		$doc = ContentUtils::createAndLoadDocument( $inputHtml );
+		$siteConfig = $this->getServiceContainer()->getParsoidSiteConfig();
+		$doc = ContentUtils::createAndLoadDocument( $inputHtml, [], $siteConfig );
 		$body = DOMCompat::getBody( $doc );
 		$listItemProvider = new ListItemProvider();
 		if ( $mode === 'parsoid' ) {
