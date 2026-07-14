@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\Checklists\Tests;
 
 use MediaWiki\Extension\Checklists\ParsoidExt\ChecklistProcessor;
 use MediaWikiIntegrationTestCase;
-use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Utils\ContentUtils;
 use Wikimedia\Parsoid\Utils\DOMCompat;
@@ -30,12 +29,12 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$processor = new ChecklistProcessor();
 		$processor->wtPostprocess( $mockApi, $body, [] );
 
-		$expectedDoc = new Document();
-		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
-		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
+		$expectedHtml = file_get_contents( __DIR__ . $outputPath );
+		$expectedDoc = ContentUtils::createAndLoadDocument( $expectedHtml, [], $siteConfig );
+		$expectedBody = DOMCompat::getBody( $expectedDoc );
 
 		$body = $this->normalize( $doc->saveHTML( $body ) );
-		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ) );
+		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody ) );
 		$this->assertSame( $expectedBody, $body );
 	}
 
@@ -58,12 +57,12 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$processor = new ChecklistProcessor();
 		$processor->htmlPreprocess( $mockApi, $body );
 
-		$expectedDoc = new Document();
-		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
-		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
+		$expectedHtml = file_get_contents( __DIR__ . $outputPath );
+		$expectedDoc = ContentUtils::createAndLoadDocument( $expectedHtml, [], $siteConfig );
+		$expectedBody = DOMCompat::getBody( $expectedDoc );
 
 		$body = $this->normalize( $doc->saveHTML( $body ) );
-		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ) );
+		$expectedBody = $this->normalize( $expectedDoc->saveHTML( $expectedBody ) );
 		$this->assertSame( $expectedBody, $body );
 	}
 
@@ -109,6 +108,8 @@ class ChecklistProcessorTest extends MediaWikiIntegrationTestCase {
 		$html = preg_replace( '/\n/', '', $html );
 		// strip data-object-id
 		$html = preg_replace( '/\sdata-object-id="\d*?"/', '', $html );
+		// normalize boolean checked attribute
+		$html = preg_replace( '/checked="(checked|)"/', 'checked', $html );
 		// remove all 2+ spaces
 		return preg_replace( '/\s+/', '', $html );
 	}

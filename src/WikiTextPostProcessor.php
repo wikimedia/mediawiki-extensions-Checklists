@@ -145,7 +145,11 @@ class WikiTextPostProcessor {
 	 */
 	private function getChecklistElements( $parent ) {
 		$allNewElements = [];
-		$allElements = $parent->childNodes;
+		// Copy to static array to avoid issues with live NodeList mutation
+		$allElements = [];
+		foreach ( $parent->childNodes as $child ) {
+			$allElements[] = $child;
+		}
 
 		$childElements = [];
 		$listItemEl = null;

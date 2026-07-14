@@ -6,7 +6,6 @@ use MediaWiki\Extension\Checklists\ListItemProvider;
 use MediaWiki\Extension\Checklists\ParsoidListItemProvider;
 use MediaWiki\Extension\Checklists\WikiTextPostProcessor;
 use MediaWikiIntegrationTestCase;
-use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\Utils\ContentUtils;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 
@@ -34,13 +33,13 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 		$processor = new WikiTextPostProcessor( $listItemProvider );
 		$processor->processDOM( $body );
 
-		$expectedDoc = new Document();
-		$expectedDoc->loadHTMLFile( __DIR__ . $outputPath );
-		$expectedBody = $expectedDoc->getElementsByTagName( 'body' );
+		$expectedHtml = file_get_contents( __DIR__ . $outputPath );
+		$expectedDoc = ContentUtils::createAndLoadDocument( $expectedHtml, [], $siteConfig );
+		$expectedBody = DOMCompat::getBody( $expectedDoc );
 
 		$actual = $this->normalize( html_entity_decode( $doc->saveHTML( $body ), ENT_QUOTES ) );
 		$expected = $this->normalize(
-			html_entity_decode( $expectedDoc->saveHTML( $expectedBody->item( 0 ) ), ENT_QUOTES )
+			html_entity_decode( $expectedDoc->saveHTML( $expectedBody ), ENT_QUOTES )
 		);
 		$this->assertSame( $expected, $actual );
 	}
@@ -73,6 +72,8 @@ class WikiTextPostProcessorTest extends MediaWikiIntegrationTestCase {
 		$html = preg_replace( '/\n/', '', $html );
 		// strip data-object-id
 		$html = preg_replace( '/\sdata-object-id="\d*?"/', '', $html );
+		// normalize boolean checked attribute
+		$html = preg_replace( '/checked="(checked|)"/', 'checked', $html );
 		// remove all 2+ spaces
 		return preg_replace( '/\s+/', '', $html );
 	}
