@@ -24,7 +24,6 @@ class WikiTextPostProcessor {
 	}
 
 	/**
-	 *
 	 * @param DOMNode $document
 	 * @return void
 	 */
@@ -86,7 +85,6 @@ class WikiTextPostProcessor {
 	}
 
 	/**
-	 *
 	 * @param string $tag
 	 * @return bool
 	 */
@@ -189,7 +187,6 @@ class WikiTextPostProcessor {
 	}
 
 	/**
-	 *
 	 * @param array $allNewElements
 	 * @param DomNode $parent
 	 * @return void

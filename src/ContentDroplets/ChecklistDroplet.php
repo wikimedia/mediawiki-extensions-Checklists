@@ -7,8 +7,6 @@ use MediaWiki\Message\Message;
 
 class ChecklistDroplet extends GenericDroplet {
 
-	/**
-	 */
 	public function __construct() {
 	}
 

@@ -99,7 +99,6 @@ class ChecklistProcessor extends DOMProcessor {
 	}
 
 	/**
-	 *
 	 * @param DomNode $element
 	 * @return array
 	 */
