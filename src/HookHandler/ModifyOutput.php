@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Checklists\HookHandler;
 
 use DOMDocument;
+use Exception;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Extension\Checklists\ListItemProvider;
 use MediaWiki\Extension\Checklists\WikiTextPostProcessor;
@@ -21,7 +22,13 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 
 	private const UNSUPPORTED_NAMESPACES = [ NS_FILE, NS_TEMPLATE ];
 
-	/** @var array */
+	/**
+	 * Parsed items per parse run, keyed by the object ID of the ParserOutput of that run.
+	 * Nested parses (message parsing, extensions using their own Parser instance) must not
+	 * consume the items of the enclosing parse.
+	 *
+	 * @var array<int,array>
+	 */
 	private $items = [];
 
 	/** @var ChecklistManager */
@@ -38,8 +45,9 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	 * @inheritDoc
 	 */
 	public function onParserBeforeInternalParse( $parser, &$text, $stripState ) {
-		if ( !empty( $this->items ) ) {
-			// Text containing checklists already processed
+		$parseId = $this->getParseId( $parser );
+		if ( isset( $this->items[$parseId] ) ) {
+			// Text containing checklists already processed for this parse run
 			return;
 		}
 		$title = $this->titleFromPageReference( $parser->getPage() );
@@ -52,15 +60,11 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 			return;
 		}
 
-		$this->items = $this->manager->getParser()->parse(
-			$text, $this->titleFromPageReference( $parser->getPage() ), true
-		);
+		$this->items[$parseId] = $this->manager->getParser()->parse( $text, $title, true );
 
-		if ( !empty( $this->items ) &&
-			!$this->isNamespaceSuitable( $this->titleFromPageReference( $parser->getPage() ) )
-		) {
+		if ( !empty( $this->items[$parseId] ) && !$this->isNamespaceSuitable( $title ) ) {
 			$this->showUnsupportedPageNotice( $parser, $text );
-			$this->items = [];
+			$this->items[$parseId] = [];
 		}
 	}
 
@@ -68,7 +72,10 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	 * @inheritDoc
 	 */
 	public function onParserAfterTidy( $parser, &$text ) {
-		if ( !$this->items ) {
+		$parseId = $this->getParseId( $parser );
+		$items = $this->items[$parseId] ?? [];
+		unset( $this->items[$parseId] );
+		if ( !$items ) {
 			return;
 		}
 		$document = new DOMDocument();
@@ -86,17 +93,23 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		$wikiTextPostprocessor->processDOM( $root );
 
 		$checklistElements = $this->getChecklistElements( $document );
+		$keys = array_keys( $items );
 		$hasChecklist = false;
-		foreach ( $checklistElements as $index => $checklistEl ) {
-			$keys = array_keys( $this->items );
+		$index = 0;
+		foreach ( $checklistElements as $checklistEl ) {
+			$hasChecklist = true;
+			if ( $checklistEl->hasAttribute( 'data-checklist-item-id' ) ) {
+				// Already assigned by a nested parse run (transclusion, DPL, ...)
+				continue;
+			}
 			$key = $keys[ $index ] ?? null;
 			if ( !$key ) {
 				continue;
 			}
+			$index++;
 
-			$checklistEl->setAttribute( 'data-checklist-item-id', $this->items[ $key ]['id'] );
-			$checklistEl->setAttribute( 'data-value', $this->items[$key]['value'] ? '1' : '0' );
-			$hasChecklist = true;
+			$checklistEl->setAttribute( 'data-checklist-item-id', $items[ $key ]['id'] );
+			$checklistEl->setAttribute( 'data-value', $items[ $key ]['value'] ? '1' : '0' );
 		}
 		if ( $hasChecklist ) {
 			$parser->getOutput()->addModules( [ 'ext.checklists.view' ] );
@@ -106,8 +119,17 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		$newText = $document->saveHTML( $root );
 		$this->unSanitizeText( $newText );
 		$text = preg_replace( '#^<div>(.*?)</div>$#si', '$1', $newText );
+	}
 
-		$this->items = [];
+	/**
+	 * Identifies a single parse run. Every Parser::parse() call creates a fresh ParserOutput,
+	 * so nested parse runs get their own state.
+	 *
+	 * @param Parser $parser
+	 * @return int
+	 */
+	private function getParseId( Parser $parser ): int {
+		return spl_object_id( $parser->getOutput() );
 	}
 
 	/**
@@ -127,6 +149,9 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		foreach ( $checklists as $checklist ) {
 			$elements = $checklist->childNodes;
 			foreach ( $elements as $element ) {
+				if ( $element->nodeType !== XML_ELEMENT_NODE || $element->nodeName !== 'li' ) {
+					continue;
+				}
 				$checklistElements[] = $element;
 			}
 		}
