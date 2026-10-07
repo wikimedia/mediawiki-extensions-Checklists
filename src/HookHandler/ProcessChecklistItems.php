@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\Checklists\HookHandler;
 
-use ManualLogEntry;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Hook\ParserPreSaveTransformCompleteHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Html\Html;
+use MediaWiki\Logging\ManualLogEntry;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\Hook\PageDeleteHook;
 use MediaWiki\Page\Hook\PageUndeleteCompleteHook;
