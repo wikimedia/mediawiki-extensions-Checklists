@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"checklists": "سم‌کتنې لړليکونه",
+	"checklists-desc": "په ليدنيز سمونگر کې د سم‌کتنې‌لړليکونه چمتو کوي",
+	"checklists-confirm-change-status": "ايا تاسو ډاډه ياست چې د سم‌کتنې‌لړليک توکي دريځ بدلول غواړئ؟ دا به د مخ نوې بياليدنه رامنځته کړي",
+	"checklists-not-allowed": "دا مخ د سم‌کتنې‌لړليکونو ته مناسب نه دی. ټولگړي لاملونه يې دا دي چې په مخ کې <code>ويکي‌ليک</code> منځپانگيزه رغبېلگه نشته يا دا چې مخ په ملاتړ شوي نوم‌تشيال کې نه دی",
+	"checklists-ve-tool-title": "کارلړ",
+	"checklists-checkbox-dlg-title": "سم‌کتنې بکس",
+	"checklists-checkbox-dlg-action-done": "وشو",
+	"checklists-checkbox-dlg-action-cancel": "ناگارل",
+	"checklists-checkbox-dlg-hide-revision-label": "دا پيغام بيا مه راښکاره کوه",
+	"checklists-droplet-checklist-title": "کارلړ",
+	"checklists-droplet-checklist-description": "کار لړ ورټومبي",
+	"checklists-error-set-status": "د دريځ ټاکلو کې پاتې راغی"
+}
