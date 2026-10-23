@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"checklists": "Kontrolné zoznamy",
+	"checklists-desc": "Poskytuje kontrolné zoznamy vo VisualEditore",
+	"checklists-confirm-change-status": "Naozaj chcete zmeniť stav tejto položky kontrolného zoznamu? Vytvorí sa tým nová revízia stránky",
+	"checklists-not-allowed": "Táto stránka nie je vhodná pre kontrolné zoznamy. Bežnou príčinou je, že stránka nemá obsahový model <code>wikitext</code> alebo nie je v podporovanom mennom priestore",
+	"checklists-ve-tool-title": "Zoznam úloh",
+	"checklists-checkbox-dlg-title": "Zaškrtávacie políčko",
+	"checklists-checkbox-dlg-action-done": "Hotovo",
+	"checklists-checkbox-dlg-action-cancel": "Zrušiť",
+	"checklists-checkbox-dlg-hide-revision-label": "Túto správu už nezobrazovať",
+	"checklists-droplet-checklist-title": "Zoznam úloh",
+	"checklists-droplet-checklist-description": "Vloží zoznam úloh",
+	"checklists-error-set-status": "Stav sa nepodarilo nastaviť"
+}
