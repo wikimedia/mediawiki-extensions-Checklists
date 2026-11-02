@@ -6,6 +6,7 @@ use DateTime;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\WikitextContent;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\RevisionRecord;
@@ -14,7 +15,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\PageUpdaterFactory;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use PermissionsError;
 
 class ChecklistManager {
 	/** @var ChecklistParser */
