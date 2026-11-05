@@ -126,7 +126,7 @@ class ChecklistStore {
 		return [
 			'ci_text' => $item->getText(),
 			'ci_value' => $item->getValue(),
-			'ci_page' => $item->getPage()->getArticleId(),
+			'ci_page' => $item->getPage()->getId(),
 			'ci_author' => $item->getAuthor()->getId(),
 			'ci_created' => $item->getCreated()->format( 'YmdHis' ),
 			'ci_touched' => $item->getModified()->format( 'YmdHis' ),

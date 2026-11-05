@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\Checklists\HookHandler;
 
 use DOMDocument;
 use Exception;
+use MediaWiki\Extension\Checklists\ChecklistItemAnnotator;
 use MediaWiki\Extension\Checklists\ChecklistManager;
 use MediaWiki\Extension\Checklists\ListItemProvider;
 use MediaWiki\Extension\Checklists\WikiTextPostProcessor;
@@ -19,7 +20,7 @@ use OOUI\MessageWidget;
 
 class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook {
 
-	private const UNSUPPORTED_NAMESPACES = [ NS_FILE, NS_TEMPLATE ];
+	public const UNSUPPORTED_NAMESPACES = [ NS_FILE, NS_TEMPLATE ];
 
 	/**
 	 * Parsed items per parse run, keyed by the object ID of the ParserOutput of that run.
@@ -90,26 +91,10 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 		$wikiTextPostprocessor = new WikiTextPostProcessor( new ListItemProvider() );
 		$wikiTextPostprocessor->processDOM( $root );
 
-		$checklistElements = $this->getChecklistElements( $document );
-		$keys = array_keys( $items );
-		$hasChecklist = false;
-		$index = 0;
-		foreach ( $checklistElements as $checklistEl ) {
-			$hasChecklist = true;
-			if ( $checklistEl->hasAttribute( 'data-checklist-item-id' ) ) {
-				// Already assigned by a nested parse run (transclusion, DPL, ...)
-				continue;
-			}
-			$key = $keys[ $index ] ?? null;
-			if ( !$key ) {
-				continue;
-			}
-			$index++;
-
-			$checklistEl->setAttribute( 'data-checklist-item-id', $items[ $key ]['id'] );
-			$checklistEl->setAttribute( 'data-value', $items[ $key ]['value'] ? '1' : '0' );
-		}
-		if ( $hasChecklist ) {
+		$annotator = new ChecklistItemAnnotator();
+		$checklistElements = $annotator->getChecklistItemElements( $document );
+		$annotator->annotate( $checklistElements, $items );
+		if ( $checklistElements ) {
 			$parser->getOutput()->addModules( [ 'ext.checklists.view' ] );
 			$parser->getOutput()->addModuleStyles( [ 'ext.checklists.styles' ] );
 		}
@@ -128,32 +113,6 @@ class ModifyOutput implements ParserBeforeInternalParseHook, ParserAfterTidyHook
 	 */
 	private function getParseId( Parser $parser ): int {
 		return spl_object_id( $parser->getOutput() );
-	}
-
-	/**
-	 * @param DOMDocument $document
-	 * @return array
-	 */
-	private function getChecklistElements( $document ) {
-		$checklists = [];
-		$checklistElements = [];
-		$lists = $document->getElementsByTagName( 'ul' );
-
-		foreach ( $lists as $element ) {
-			if ( $element->getAttribute( 'class' ) === 'checklist' ) {
-				$checklists[] = $element;
-			}
-		}
-		foreach ( $checklists as $checklist ) {
-			$elements = $checklist->childNodes;
-			foreach ( $elements as $element ) {
-				if ( $element->nodeType !== XML_ELEMENT_NODE || $element->nodeName !== 'li' ) {
-					continue;
-				}
-				$checklistElements[] = $element;
-			}
-		}
-		return $checklistElements;
 	}
 
 	/**
